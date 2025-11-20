@@ -23,7 +23,7 @@ if (defined('PANTHEON_ENVIRONMENT') && PANTHEON_ENVIRONMENT === 'live') {
          */
         function clear_cloudflare_cache( $post_id, $post, $update ) {
             // Bail if this is an autosave.
-            if ( (defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE) || wp_is_post_autosave($id) ) {
+            if ( (defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE) || wp_is_post_autosave( $post_id ) ) {
                 return;
             }
 
