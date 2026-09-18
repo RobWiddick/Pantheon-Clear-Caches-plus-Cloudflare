@@ -102,7 +102,7 @@ class Meta_Box {
 
 		add_meta_box(
 			'cpcf-purge-control',
-			__( 'Cache Purge Control', 'cache-purge-control-for-cloudflare' ),
+			__( 'Cache Purge Control', 'pantheon-clear-caches-plus-cloudflare' ),
 			array( $this, 'render' ),
 			$post_type,
 			'side',
@@ -121,20 +121,20 @@ class Meta_Box {
 		$depends    = array_map( 'strval', (array) get_post_meta( $post->ID, self::META_DEPENDS, false ) );
 		$type_mode  = $this->settings->mode_for_post_type( $post->post_type );
 		$labels     = array(
-			'everything' => __( 'Purge everything', 'cache-purge-control-for-cloudflare' ),
-			'targeted'   => __( 'Purge affected URLs only', 'cache-purge-control-for-cloudflare' ),
-			'none'       => __( 'Do not purge', 'cache-purge-control-for-cloudflare' ),
+			'everything' => __( 'Purge everything', 'pantheon-clear-caches-plus-cloudflare' ),
+			'targeted'   => __( 'Purge affected URLs only', 'pantheon-clear-caches-plus-cloudflare' ),
+			'none'       => __( 'Do not purge', 'pantheon-clear-caches-plus-cloudflare' ),
 		);
 
 		wp_nonce_field( self::NONCE, self::NONCE );
 		?>
 		<p>
-			<label for="cpcf-purge-mode"><strong><?php esc_html_e( 'When this is saved', 'cache-purge-control-for-cloudflare' ); ?></strong></label><br />
+			<label for="cpcf-purge-mode"><strong><?php esc_html_e( 'When this is saved', 'pantheon-clear-caches-plus-cloudflare' ); ?></strong></label><br />
 			<select name="cpcf_purge_mode" id="cpcf-purge-mode" class="widefat">
 				<option value="">
 				<?php
 					/* translators: %s: the purge mode inherited from the post type settings */
-					echo esc_html( sprintf( __( 'Use post type setting (%s)', 'cache-purge-control-for-cloudflare' ), isset( $labels[ $type_mode ] ) ? $labels[ $type_mode ] : $type_mode ) );
+					echo esc_html( sprintf( __( 'Use post type setting (%s)', 'pantheon-clear-caches-plus-cloudflare' ), isset( $labels[ $type_mode ] ) ? $labels[ $type_mode ] : $type_mode ) );
 				?>
 				</option>
 				<?php foreach ( $labels as $value => $label ) : ?>
@@ -143,19 +143,19 @@ class Meta_Box {
 			</select>
 		</p>
 		<p>
-			<label for="cpcf-extra-urls"><strong><?php esc_html_e( 'Also purge these URLs', 'cache-purge-control-for-cloudflare' ); ?></strong></label><br />
+			<label for="cpcf-extra-urls"><strong><?php esc_html_e( 'Also purge these URLs', 'pantheon-clear-caches-plus-cloudflare' ); ?></strong></label><br />
 			<textarea name="cpcf_extra_urls" id="cpcf-extra-urls" class="widefat" rows="3" placeholder="/about/&#10;/team/*"><?php echo esc_textarea( $extra_urls ); ?></textarea>
-			<span class="description"><?php esc_html_e( 'One per line. Paths are relative to the site. End a path with * to purge everything under it.', 'cache-purge-control-for-cloudflare' ); ?></span>
+			<span class="description"><?php esc_html_e( 'One per line. Paths are relative to the site. End a path with * to purge everything under it.', 'pantheon-clear-caches-plus-cloudflare' ); ?></span>
 		</p>
 		<p>
-			<strong><?php esc_html_e( 'Purge this when any of these change', 'cache-purge-control-for-cloudflare' ); ?></strong><br />
+			<strong><?php esc_html_e( 'Purge this when any of these change', 'pantheon-clear-caches-plus-cloudflare' ); ?></strong><br />
 			<?php foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $type ) : ?>
 				<label style="display:block;">
 					<input type="checkbox" name="cpcf_depends_on[]" value="<?php echo esc_attr( $type->name ); ?>" <?php checked( in_array( $type->name, $depends, true ) ); ?> />
 					<?php echo esc_html( $type->labels->name ); ?>
 				</label>
 			<?php endforeach; ?>
-			<span class="description"><?php esc_html_e( 'Use this for pages that list or embed other content, such as a team page built from "People" entries.', 'cache-purge-control-for-cloudflare' ); ?></span>
+			<span class="description"><?php esc_html_e( 'Use this for pages that list or embed other content, such as a team page built from "People" entries.', 'pantheon-clear-caches-plus-cloudflare' ); ?></span>
 		</p>
 		<?php
 	}

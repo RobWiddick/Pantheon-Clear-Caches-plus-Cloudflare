@@ -27,41 +27,9 @@ The original plugin fixed this by purging the entire Cloudflare zone on every sa
 
 ## Installation
 
-1. Install and activate the plugin. Use the ZIP attached to a [GitHub release](https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare/releases), or build one with `bin/build-zip.sh`.
+1. Install and activate the plugin: upload the ZIP through **Plugins → Add New**, or clone this repository into `wp-content/plugins/`.
 2. Go to **Settings → Cloudflare Purge** and follow the three steps on the Connection tab.
 3. Review the **Purge Behavior** tab.
-
-### The plugin folder must be named `cache-purge-control-for-cloudflare`
-
-WordPress identifies a plugin by its folder name, and that name is the plugin slug: it must match the main file (`cache-purge-control-for-cloudflare.php`) and the text domain used by every translatable string. This repository is named differently, so a plain "Download ZIP" from GitHub, or a `git clone` into `wp-content/plugins`, produces a folder called `Pantheon-Clear-Caches-plus-Cloudflare`. The plugin still runs, but the WordPress.org Plugin Check then reports hundreds of errors like:
-
-```
-Mismatched text domain. Expected 'pantheon-clear-caches-plus-cloudflare' but got 'cache-purge-control-for-cloudflare'.
-```
-
-Fix it by giving the folder the right name:
-
-```bash
-# development checkout
-git clone https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare.git wp-content/plugins/cache-purge-control-for-cloudflare
-
-# or build a ZIP with the correct top-level folder (honours .distignore)
-bin/build-zip.sh          # writes dist/cache-purge-control-for-cloudflare-<version>.zip
-```
-
-Pushing a tag such as `v2.0.0` runs the "Build plugin ZIP" GitHub Action, which attaches that ZIP to the release.
-
-To keep credentials out of the database:
-
-```php
-define( 'CPCF_CLOUDFLARE_API_TOKEN', 'your-token' );
-define( 'CPCF_CLOUDFLARE_ZONE_ID', 'your-zone-id' );
-```
-
-### Upgrading from 1.x (MU plugin)
-
-1. Delete `wp-content/mu-plugins/mu-clear-cloudflare-cache.php`.
-2. Install this plugin. On Pantheon, if `files/private/cloudflare_cache_config.json` still exists, the settings page offers a one-click import of its zone and token. Delete the file afterwards.
 
 ## Why an API token and not OAuth?
 
@@ -101,8 +69,8 @@ Useful filters: `cpcf_post_purge_plan`, `cpcf_purge_urls`, `cpcf_purge_prefixes`
 ```bash
 composer global require wp-coding-standards/wpcs phpcompatibility/phpcompatibility-wp dealerdirect/phpcodesniffer-composer-installer
 phpcs                       # uses phpcs.xml.dist
-bin/build-zip.sh            # builds dist/cache-purge-control-for-cloudflare-<version>.zip
-wp plugin check cache-purge-control-for-cloudflare   # with the Plugin Check plugin installed; the folder name must be the slug
+wp plugin check pantheon-clear-caches-plus-cloudflare   # with the Plugin Check plugin installed
+wp dist-archive .           # builds the ZIP, honouring .distignore
 ```
 
 ## Contributing

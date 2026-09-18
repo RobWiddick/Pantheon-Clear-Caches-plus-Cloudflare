@@ -10,7 +10,7 @@
  * Author URI:        https://36.agency
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       cache-purge-control-for-cloudflare
+ * Text Domain:       pantheon-clear-caches-plus-cloudflare
  * Domain Path:       /languages
  *
  * @package CPCF

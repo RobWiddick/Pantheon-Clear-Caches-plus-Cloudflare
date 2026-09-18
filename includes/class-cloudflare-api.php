@@ -109,7 +109,7 @@ class Cloudflare_API {
 			return new \WP_Error(
 				'cpcf_token_inactive',
 				/* translators: %s: token status reported by Cloudflare */
-				sprintf( __( 'The API token is not active (status: %s).', 'cache-purge-control-for-cloudflare' ), $status )
+				sprintf( __( 'The API token is not active (status: %s).', 'pantheon-clear-caches-plus-cloudflare' ), $status )
 			);
 		}
 
@@ -271,7 +271,7 @@ class Cloudflare_API {
 	 */
 	public function purge( $zone_id, array $payload ) {
 		if ( '' === (string) $zone_id ) {
-			return new \WP_Error( 'cpcf_no_zone', __( 'No Cloudflare zone is selected.', 'cache-purge-control-for-cloudflare' ) );
+			return new \WP_Error( 'cpcf_no_zone', __( 'No Cloudflare zone is selected.', 'pantheon-clear-caches-plus-cloudflare' ) );
 		}
 
 		$response = $this->request( 'POST', 'zones/' . rawurlencode( $zone_id ) . '/purge_cache', $payload );
@@ -290,7 +290,7 @@ class Cloudflare_API {
 	 */
 	private function request( $method, $path, $body = null, array $query = array() ) {
 		if ( ! $this->has_token() ) {
-			return new \WP_Error( 'cpcf_no_token', __( 'No Cloudflare API token is configured.', 'cache-purge-control-for-cloudflare' ) );
+			return new \WP_Error( 'cpcf_no_token', __( 'No Cloudflare API token is configured.', 'pantheon-clear-caches-plus-cloudflare' ) );
 		}
 
 		$url = self::API_BASE . ltrim( $path, '/' );
@@ -336,7 +336,7 @@ class Cloudflare_API {
 
 			return new \WP_Error(
 				'cpcf_rate_limited',
-				__( 'Cloudflare rate limited the request (HTTP 429).', 'cache-purge-control-for-cloudflare' ),
+				__( 'Cloudflare rate limited the request (HTTP 429).', 'pantheon-clear-caches-plus-cloudflare' ),
 				array( 'retry_after' => $retry_after > 0 ? $retry_after : 60 )
 			);
 		}
@@ -345,7 +345,7 @@ class Cloudflare_API {
 			return new \WP_Error(
 				'cpcf_bad_response',
 				/* translators: %d: HTTP status code */
-				sprintf( __( 'Unexpected response from Cloudflare (HTTP %d).', 'cache-purge-control-for-cloudflare' ), $code )
+				sprintf( __( 'Unexpected response from Cloudflare (HTTP %d).', 'pantheon-clear-caches-plus-cloudflare' ), $code )
 			);
 		}
 
@@ -362,7 +362,7 @@ class Cloudflare_API {
 
 			if ( empty( $messages ) ) {
 				/* translators: %d: HTTP status code */
-				$messages[] = sprintf( __( 'Request failed (HTTP %d).', 'cache-purge-control-for-cloudflare' ), $code );
+				$messages[] = sprintf( __( 'Request failed (HTTP %d).', 'pantheon-clear-caches-plus-cloudflare' ), $code );
 			}
 
 			$error_code = ( 401 === $code || 403 === $code ) ? 'cpcf_unauthorized' : 'cpcf_api_error';
@@ -370,7 +370,7 @@ class Cloudflare_API {
 			return new \WP_Error(
 				$error_code,
 				/* translators: %s: error details returned by Cloudflare */
-				sprintf( __( 'Cloudflare API error: %s', 'cache-purge-control-for-cloudflare' ), implode( '; ', $messages ) ),
+				sprintf( __( 'Cloudflare API error: %s', 'pantheon-clear-caches-plus-cloudflare' ), implode( '; ', $messages ) ),
 				array(
 					'status' => $code,
 					'errors' => isset( $data['errors'] ) ? $data['errors'] : array(),

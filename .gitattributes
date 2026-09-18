@@ -1,5 +1,4 @@
 # Keep development files out of GitHub's "Download ZIP" export.
-/.github export-ignore
 /.gitattributes export-ignore
 /.distignore export-ignore
 /.editorconfig export-ignore

@@ -74,10 +74,6 @@ To keep credentials out of the database, add these lines to `wp-config.php` inst
 `define( 'CPCF_CLOUDFLARE_API_TOKEN', 'your-token' );`
 `define( 'CPCF_CLOUDFLARE_ZONE_ID', 'your-zone-id' );`
 
-= Installing manually =
-
-The plugin folder must be named `cache-purge-control-for-cloudflare`. A ZIP downloaded from GitHub uses the repository name instead; rename the folder, or use the ZIP attached to a GitHub release.
-
 = Upgrading from the 1.x MU plugin =
 
 Remove `mu-clear-cloudflare-cache.php` from `wp-content/mu-plugins`. On Pantheon, if the old `files/private/cloudflare_cache_config.json` file is still present, the settings page offers a one-click import of its zone and token. Delete the file afterwards.
