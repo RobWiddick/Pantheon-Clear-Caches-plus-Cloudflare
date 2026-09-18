@@ -10,9 +10,10 @@ node_modules
 vendor
 tests
 README.md
-phpcs.xml.dist
+phpcs.xml
 composer.json
 composer.lock
 package.json
 package-lock.json
 *.zip
+.wordpress-org

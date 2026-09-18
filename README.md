@@ -1,5 +1,7 @@
 # Purge Pantheon + Cloudflare Caches
 
+![Purge Pantheon + Cloudflare Caches](.wordpress-org/banner-1544x500.jpg)
+
 Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes, with granular control over *how much* is purged: everything, or only the URLs an edit actually affects.
 
 This is version 2 of what used to be a Pantheon-only MU plugin ("36 Total Cache + Cloudflare Purger"). It is now a regular, installable WordPress plugin with a settings page, built to meet the WordPress.org plugin directory guidelines.
@@ -64,11 +66,22 @@ cpcf_purge_post( 123 );
 
 Useful filters: `cpcf_post_purge_plan`, `cpcf_purge_urls`, `cpcf_purge_prefixes`, `cpcf_post_purge_mode`, `cpcf_post_type_purge_mode`, `cpcf_sitewide_options`, `cpcf_sitewide_post_types`, `cpcf_reference_content_patterns`, `cpcf_reference_post_types`, `cpcf_home_post_types`, `cpcf_date_archive_post_types`, `cpcf_is_production`, `cpcf_automatic_purges_allowed`, `cpcf_api_request_args`, `cpcf_purge_batch_size`. Actions: `cpcf_before_purge`, `cpcf_after_purge`.
 
+## WordPress.org listing assets
+
+The banner, icon and screenshots for the plugin directory live in `.wordpress-org/`. They are not part of the installed plugin (the folder is excluded from the ZIP by `.distignore`); upload them to the top-level `assets/` directory of the plugin's SVN repository, next to `trunk/`:
+
+```bash
+svn add assets/*
+svn propset svn:mime-type image/jpeg assets/*.jpg
+svn propset svn:mime-type image/png assets/*.png
+svn commit -m "Add listing assets"
+```
+
 ## Development
 
 ```bash
 composer global require wp-coding-standards/wpcs phpcompatibility/phpcompatibility-wp dealerdirect/phpcodesniffer-composer-installer
-phpcs                       # uses phpcs.xml.dist
+phpcs                       # uses phpcs.xml
 wp plugin check purge-pantheon-cloudflare-caches   # with the Plugin Check plugin installed
 wp dist-archive .           # builds the ZIP, honouring .distignore
 ```
