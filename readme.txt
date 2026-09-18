@@ -1,12 +1,12 @@
 === Purge Pantheon + Cloudflare Caches ===
 Contributors: robwiddick
 Tags: cloudflare, cache, purge, cdn, pantheon
-Requires at least: 6.0
+Requires at least: 6.7
 Tested up to: 7.1
-Stable tag: 2.0.0
-Requires PHP: 7.4
-License: MIT
-License URI: https://opensource.org/licenses/MIT
+Stable tag: 2.0.1
+Requires PHP: 8.1
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Purge Cloudflare (and Pantheon) caches when content changes. Purge the whole zone, or only the URLs an edit affects.
 
@@ -119,6 +119,11 @@ Your API token (encrypted), the selected zone, the settings, a log of recent pur
 
 == Changelog ==
 
+= 2.0.1 =
+* Licensed under GPLv2 or later (previously MIT).
+* Requires WordPress 6.7 and PHP 8.1.
+* Plugin renamed to "Purge Pantheon + Cloudflare Caches"; slug and text domain are now purge-pantheon-cloudflare-caches.
+
 = 2.0.0 =
 * Rewritten as a regular, installable plugin with a settings page (previously a Pantheon-only MU plugin configured through a JSON file).
 * Connect to Cloudflare with an API token: guided token creation, verification, zone selection, encrypted storage or wp-config constants.
@@ -133,5 +138,5 @@ Your API token (encrypted), the selected zone, the settings, a log of recent pur
 
 == Upgrade Notice ==
 
-= 2.0.0 =
+= 2.0.1 =
 Replaces the 1.x MU plugin. Remove mu-clear-cloudflare-cache.php from mu-plugins, then connect to Cloudflare under Settings → Purge Caches.

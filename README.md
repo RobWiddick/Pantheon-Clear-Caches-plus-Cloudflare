@@ -79,4 +79,4 @@ Pull requests are welcome. Please describe the use case, run `phpcs`, and keep c
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+GPLv2 or later. See [LICENSE](LICENSE).

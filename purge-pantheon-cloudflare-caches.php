@@ -3,22 +3,38 @@
  * Plugin Name:       Purge Pantheon + Cloudflare Caches
  * Plugin URI:        https://github.com/RobWiddick/purge-pantheon-cloudflare-caches
  * Description:       Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes. Purge everything, or only the URLs an edit actually affects.
- * Version:           2.0.0
- * Requires at least: 6.0
- * Requires PHP:      7.4
+ * Version:           2.0.1
+ * Requires at least: 6.7
+ * Requires PHP:      8.1
  * Author:            36creative
  * Author URI:        https://36.agency
- * License:           MIT
- * License URI:       https://opensource.org/licenses/MIT
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       purge-pantheon-cloudflare-caches
  * Domain Path:       /languages
  *
  * @package CPCF
  */
 
+/*
+ * Purge Pantheon + Cloudflare Caches
+ * Copyright (C) 2025-2026 36creative
+ *
+ * This program is free software; you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+ * even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+ * Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with this program; if not,
+ * see https://www.gnu.org/licenses/gpl-2.0.html.
+ */
+
 defined( 'ABSPATH' ) || exit;
 
-define( 'CPCF_VERSION', '2.0.0' );
+define( 'CPCF_VERSION', '2.0.1' );
 define( 'CPCF_PLUGIN_FILE', __FILE__ );
 define( 'CPCF_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CPCF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
