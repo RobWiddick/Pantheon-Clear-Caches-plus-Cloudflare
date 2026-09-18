@@ -2,48 +2,48 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cache Purge Control for Cloudflare 2.0.0\n"
-"Report-Msgid-Bugs-To: https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare/issues\n"
+"Project-Id-Version: Purge Pantheon + Cloudflare Caches 2.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/RobWiddick/purge-pantheon-cloudflare-caches/issues\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-17T20:06:04+00:00\n"
+"POT-Creation-Date: 2026-09-18T13:36:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: cache-purge-control-for-cloudflare\n"
+"X-Domain: purge-pantheon-cloudflare-caches\n"
 
 #. Plugin Name of the plugin
-#: cache-purge-control-for-cloudflare.php
+#: purge-pantheon-cloudflare-caches.php
 #: includes/class-admin.php:119
 #: includes/views/settings-page.php:38
-msgid "Cache Purge Control for Cloudflare"
+msgid "Purge Pantheon + Cloudflare Caches"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: cache-purge-control-for-cloudflare.php
-msgid "https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare"
+#: purge-pantheon-cloudflare-caches.php
+msgid "https://github.com/RobWiddick/purge-pantheon-cloudflare-caches"
 msgstr ""
 
 #. Description of the plugin
-#: cache-purge-control-for-cloudflare.php
+#: purge-pantheon-cloudflare-caches.php
 msgid "Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes. Purge everything, or only the URLs an edit actually affects."
 msgstr ""
 
 #. Author of the plugin
-#: cache-purge-control-for-cloudflare.php
+#: purge-pantheon-cloudflare-caches.php
 msgid "36creative"
 msgstr ""
 
 #. Author URI of the plugin
-#: cache-purge-control-for-cloudflare.php
+#: purge-pantheon-cloudflare-caches.php
 msgid "https://36.agency"
 msgstr ""
 
 #: includes/class-admin.php:120
 #: includes/class-admin.php:302
-msgid "Cloudflare Purge"
+msgid "Purge Caches"
 msgstr ""
 
 #: includes/class-admin.php:149
@@ -77,7 +77,7 @@ msgid "Remove"
 msgstr ""
 
 #: includes/class-admin.php:228
-msgid "Cache Purge Control for Cloudflare is not connected to Cloudflare yet."
+msgid "Purge Pantheon + Cloudflare Caches is not connected to Cloudflare yet."
 msgstr ""
 
 #: includes/class-admin.php:230
@@ -787,7 +787,7 @@ msgid "Admin bar"
 msgstr ""
 
 #: includes/views/settings-page.php:240
-msgid "Show a \"Cloudflare Purge\" menu in the admin bar with purge shortcuts."
+msgid "Show a \"Purge Caches\" menu in the admin bar with purge shortcuts."
 msgstr ""
 
 #: includes/views/settings-page.php:241

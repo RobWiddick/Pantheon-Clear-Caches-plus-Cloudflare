@@ -1,4 +1,4 @@
-# Cache Purge Control for Cloudflare
+# Purge Pantheon + Cloudflare Caches
 
 Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes, with granular control over *how much* is purged: everything, or only the URLs an edit actually affects.
 
@@ -27,21 +27,9 @@ The original plugin fixed this by purging the entire Cloudflare zone on every sa
 
 ## Installation
 
-1. Install and activate the plugin (upload the ZIP or clone this repository into `wp-content/plugins/cache-purge-control-for-cloudflare`).
-2. Go to **Settings → Cloudflare Purge** and follow the three steps on the Connection tab.
+1. Install and activate the plugin: upload the ZIP through **Plugins → Add New**, or clone this repository into `wp-content/plugins/`.
+2. Go to **Settings → Purge Caches** and follow the three steps on the Connection tab.
 3. Review the **Purge Behavior** tab.
-
-To keep credentials out of the database:
-
-```php
-define( 'CPCF_CLOUDFLARE_API_TOKEN', 'your-token' );
-define( 'CPCF_CLOUDFLARE_ZONE_ID', 'your-zone-id' );
-```
-
-### Upgrading from 1.x (MU plugin)
-
-1. Delete `wp-content/mu-plugins/mu-clear-cloudflare-cache.php`.
-2. Install this plugin. On Pantheon, if `files/private/cloudflare_cache_config.json` still exists, the settings page offers a one-click import of its zone and token. Delete the file afterwards.
 
 ## Why an API token and not OAuth?
 
@@ -81,7 +69,7 @@ Useful filters: `cpcf_post_purge_plan`, `cpcf_purge_urls`, `cpcf_purge_prefixes`
 ```bash
 composer global require wp-coding-standards/wpcs phpcompatibility/phpcompatibility-wp dealerdirect/phpcodesniffer-composer-installer
 phpcs                       # uses phpcs.xml.dist
-wp plugin check cache-purge-control-for-cloudflare   # with the Plugin Check plugin installed
+wp plugin check purge-pantheon-cloudflare-caches   # with the Plugin Check plugin installed
 wp dist-archive .           # builds the ZIP, honouring .distignore
 ```
 

@@ -402,7 +402,7 @@ class Hooks {
 		}
 
 		/* translators: %s: post title */
-		$reason = sprintf( __( 'Comments changed on "%s"', 'cache-purge-control-for-cloudflare' ), $post->post_title );
+		$reason = sprintf( __( 'Comments changed on "%s"', 'purge-pantheon-cloudflare-caches' ), $post->post_title );
 
 		if ( 'follow' === $setting ) {
 			$this->purger->queue_post( $post->ID, array( 'trigger' => $reason ) );
@@ -538,10 +538,10 @@ class Hooks {
 
 		if ( 'deleted' === $action ) {
 			/* translators: 1: taxonomy label, 2: term name */
-			$reason = sprintf( __( '%1$s "%2$s" was deleted', 'cache-purge-control-for-cloudflare' ), $tax->labels->singular_name, $name );
+			$reason = sprintf( __( '%1$s "%2$s" was deleted', 'purge-pantheon-cloudflare-caches' ), $tax->labels->singular_name, $name );
 		} else {
 			/* translators: 1: taxonomy label, 2: term name */
-			$reason = sprintf( __( '%1$s "%2$s" was edited', 'cache-purge-control-for-cloudflare' ), $tax->labels->singular_name, $name );
+			$reason = sprintf( __( '%1$s "%2$s" was edited', 'purge-pantheon-cloudflare-caches' ), $tax->labels->singular_name, $name );
 		}
 
 		$slug_changed = ( is_array( $current ) && is_array( $old ) && isset( $current['slug'], $old['slug'] ) && $current['slug'] !== $old['slug'] );
@@ -630,7 +630,7 @@ class Hooks {
 
 		$user = get_userdata( $user_id );
 		/* translators: %s: user display name */
-		$reason = sprintf( __( 'Author "%s" updated', 'cache-purge-control-for-cloudflare' ), $user ? $user->display_name : '#' . $user_id );
+		$reason = sprintf( __( 'Author "%s" updated', 'purge-pantheon-cloudflare-caches' ), $user ? $user->display_name : '#' . $user_id );
 
 		if ( 'everything' === $this->settings->get( 'purge_mode' ) ) {
 			$this->purger->request_everything( $reason );
@@ -645,28 +645,28 @@ class Hooks {
 	 * Navigation menu saved.
 	 */
 	public function on_nav_menu() {
-		$this->sitewide( __( 'Navigation menu updated', 'cache-purge-control-for-cloudflare' ) );
+		$this->sitewide( __( 'Navigation menu updated', 'purge-pantheon-cloudflare-caches' ) );
 	}
 
 	/**
 	 * Customizer settings published.
 	 */
 	public function on_customizer() {
-		$this->sitewide( __( 'Customizer settings published', 'cache-purge-control-for-cloudflare' ) );
+		$this->sitewide( __( 'Customizer settings published', 'purge-pantheon-cloudflare-caches' ) );
 	}
 
 	/**
 	 * Theme switched.
 	 */
 	public function on_switch_theme() {
-		$this->sitewide( __( 'Theme switched', 'cache-purge-control-for-cloudflare' ) );
+		$this->sitewide( __( 'Theme switched', 'purge-pantheon-cloudflare-caches' ) );
 	}
 
 	/**
 	 * Permalink structure changed.
 	 */
 	public function on_permalinks() {
-		$this->sitewide( __( 'Permalink structure changed', 'cache-purge-control-for-cloudflare' ) );
+		$this->sitewide( __( 'Permalink structure changed', 'purge-pantheon-cloudflare-caches' ) );
 	}
 
 	/**
@@ -676,7 +676,7 @@ class Hooks {
 	 * @return array Unchanged instance.
 	 */
 	public function on_widget_update( $instance ) {
-		$this->sitewide( __( 'Widget updated', 'cache-purge-control-for-cloudflare' ) );
+		$this->sitewide( __( 'Widget updated', 'purge-pantheon-cloudflare-caches' ) );
 
 		return $instance;
 	}
@@ -692,7 +692,7 @@ class Hooks {
 
 		if ( in_array( $type, array( 'core', 'plugin', 'theme' ), true ) ) {
 			/* translators: %s: update type (core, plugin, theme) */
-			$this->sitewide( sprintf( __( 'Update installed (%s)', 'cache-purge-control-for-cloudflare' ), $type ) );
+			$this->sitewide( sprintf( __( 'Update installed (%s)', 'purge-pantheon-cloudflare-caches' ), $type ) );
 		}
 	}
 
@@ -707,7 +707,7 @@ class Hooks {
 		}
 
 		/* translators: %s: plugin file name */
-		$this->sitewide( sprintf( __( 'Plugin activated or deactivated (%s)', 'cache-purge-control-for-cloudflare' ), $plugin ) );
+		$this->sitewide( sprintf( __( 'Plugin activated or deactivated (%s)', 'purge-pantheon-cloudflare-caches' ), $plugin ) );
 	}
 
 	/**
@@ -770,7 +770,7 @@ class Hooks {
 
 		if ( $matches ) {
 			/* translators: %s: option name */
-			$this->sitewide( sprintf( __( 'Setting "%s" changed', 'cache-purge-control-for-cloudflare' ), $option ) );
+			$this->sitewide( sprintf( __( 'Setting "%s" changed', 'purge-pantheon-cloudflare-caches' ), $option ) );
 		}
 	}
 
@@ -787,7 +787,7 @@ class Hooks {
 		$post_id = (string) $post_id;
 
 		if ( 0 === strpos( $post_id, 'option' ) ) {
-			$this->sitewide( __( 'ACF options page saved', 'cache-purge-control-for-cloudflare' ) );
+			$this->sitewide( __( 'ACF options page saved', 'purge-pantheon-cloudflare-caches' ) );
 		}
 	}
 
@@ -828,7 +828,7 @@ class Hooks {
 	 */
 	private function post_reason( $post, $post_before = null, $action = '' ) {
 		if ( ! $post instanceof \WP_Post ) {
-			return __( 'Content changed', 'cache-purge-control-for-cloudflare' );
+			return __( 'Content changed', 'purge-pantheon-cloudflare-caches' );
 		}
 
 		$type  = get_post_type_object( $post->post_type );
@@ -848,19 +848,19 @@ class Hooks {
 		switch ( $action ) {
 			case 'published':
 				/* translators: 1: post type label, 2: post title */
-				return sprintf( __( '%1$s "%2$s" published', 'cache-purge-control-for-cloudflare' ), $label, $title );
+				return sprintf( __( '%1$s "%2$s" published', 'purge-pantheon-cloudflare-caches' ), $label, $title );
 			case 'trashed':
 				/* translators: 1: post type label, 2: post title */
-				return sprintf( __( '%1$s "%2$s" trashed', 'cache-purge-control-for-cloudflare' ), $label, $title );
+				return sprintf( __( '%1$s "%2$s" trashed', 'purge-pantheon-cloudflare-caches' ), $label, $title );
 			case 'unpublished':
 				/* translators: 1: post type label, 2: post title */
-				return sprintf( __( '%1$s "%2$s" unpublished', 'cache-purge-control-for-cloudflare' ), $label, $title );
+				return sprintf( __( '%1$s "%2$s" unpublished', 'purge-pantheon-cloudflare-caches' ), $label, $title );
 			case 'deleted':
 				/* translators: 1: post type label, 2: post title */
-				return sprintf( __( '%1$s "%2$s" deleted', 'cache-purge-control-for-cloudflare' ), $label, $title );
+				return sprintf( __( '%1$s "%2$s" deleted', 'purge-pantheon-cloudflare-caches' ), $label, $title );
 			default:
 				/* translators: 1: post type label, 2: post title */
-				return sprintf( __( '%1$s "%2$s" updated', 'cache-purge-control-for-cloudflare' ), $label, $title );
+				return sprintf( __( '%1$s "%2$s" updated', 'purge-pantheon-cloudflare-caches' ), $label, $title );
 		}
 	}
 }

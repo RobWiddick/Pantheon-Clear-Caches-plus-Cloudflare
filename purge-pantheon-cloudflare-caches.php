@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Cache Purge Control for Cloudflare
- * Plugin URI:        https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare
+ * Plugin Name:       Purge Pantheon + Cloudflare Caches
+ * Plugin URI:        https://github.com/RobWiddick/purge-pantheon-cloudflare-caches
  * Description:       Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes. Purge everything, or only the URLs an edit actually affects.
  * Version:           2.0.0
  * Requires at least: 6.0
@@ -10,7 +10,7 @@
  * Author URI:        https://36.agency
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       cache-purge-control-for-cloudflare
+ * Text Domain:       purge-pantheon-cloudflare-caches
  * Domain Path:       /languages
  *
  * @package CPCF
