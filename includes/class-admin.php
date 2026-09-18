@@ -17,7 +17,7 @@ class Admin {
 	/**
 	 * Settings page slug.
 	 */
-	const PAGE = 'pantheon-clear-caches-plus-cloudflare';
+	const PAGE = 'purge-pantheon-cloudflare-caches';
 
 	/**
 	 * Capability required to manage the plugin.
@@ -116,8 +116,8 @@ class Admin {
 	 */
 	public function menu() {
 		add_options_page(
-			__( 'Purge Pantheon + Cloudflare Caches', 'pantheon-clear-caches-plus-cloudflare' ),
-			__( 'Purge Caches', 'pantheon-clear-caches-plus-cloudflare' ),
+			__( 'Purge Pantheon + Cloudflare Caches', 'purge-pantheon-cloudflare-caches' ),
+			__( 'Purge Caches', 'purge-pantheon-cloudflare-caches' ),
 			self::CAPABILITY,
 			self::PAGE,
 			array( $this, 'render_page' )
@@ -146,7 +146,7 @@ class Admin {
 	 * @return array
 	 */
 	public function action_links( $links ) {
-		array_unshift( $links, '<a href="' . esc_url( $this->page_url() ) . '">' . esc_html__( 'Settings', 'pantheon-clear-caches-plus-cloudflare' ) . '</a>' );
+		array_unshift( $links, '<a href="' . esc_url( $this->page_url() ) . '">' . esc_html__( 'Settings', 'purge-pantheon-cloudflare-caches' ) . '</a>' );
 
 		return $links;
 	}
@@ -173,12 +173,12 @@ class Admin {
 				'zoneId'   => $this->settings->get_zone_id(),
 				'siteHost' => (string) wp_parse_url( home_url(), PHP_URL_HOST ),
 				'i18n'     => array(
-					'verifying'    => __( 'Verifying token…', 'pantheon-clear-caches-plus-cloudflare' ),
-					'selectZone'   => __( '— Select a zone —', 'pantheon-clear-caches-plus-cloudflare' ),
-					'noZones'      => __( 'The token is valid but no zones were returned. Make sure it includes Zone:Read for the zone you want to purge.', 'pantheon-clear-caches-plus-cloudflare' ),
-					'requestError' => __( 'The request failed. Please try again.', 'pantheon-clear-caches-plus-cloudflare' ),
-					'saveReminder' => __( 'Choose a zone and click "Save Changes" to finish connecting.', 'pantheon-clear-caches-plus-cloudflare' ),
-					'remove'       => __( 'Remove', 'pantheon-clear-caches-plus-cloudflare' ),
+					'verifying'    => __( 'Verifying token…', 'purge-pantheon-cloudflare-caches' ),
+					'selectZone'   => __( '— Select a zone —', 'purge-pantheon-cloudflare-caches' ),
+					'noZones'      => __( 'The token is valid but no zones were returned. Make sure it includes Zone:Read for the zone you want to purge.', 'purge-pantheon-cloudflare-caches' ),
+					'requestError' => __( 'The request failed. Please try again.', 'purge-pantheon-cloudflare-caches' ),
+					'saveReminder' => __( 'Choose a zone and click "Save Changes" to finish connecting.', 'purge-pantheon-cloudflare-caches' ),
+					'remove'       => __( 'Remove', 'purge-pantheon-cloudflare-caches' ),
 				),
 			)
 		);
@@ -225,27 +225,27 @@ class Admin {
 		if ( ! $this->settings->is_connected() && ! $is_ours ) {
 			printf(
 				'<div class="notice notice-warning"><p>%1$s <a href="%2$s">%3$s</a></p></div>',
-				esc_html__( 'Purge Pantheon + Cloudflare Caches is not connected to Cloudflare yet.', 'pantheon-clear-caches-plus-cloudflare' ),
+				esc_html__( 'Purge Pantheon + Cloudflare Caches is not connected to Cloudflare yet.', 'purge-pantheon-cloudflare-caches' ),
 				esc_url( $this->page_url() ),
-				esc_html__( 'Connect now', 'pantheon-clear-caches-plus-cloudflare' )
+				esc_html__( 'Connect now', 'purge-pantheon-cloudflare-caches' )
 			);
 		}
 
 		if ( $this->settings->token_unreadable() ) {
 			printf(
 				'<div class="notice notice-error"><p>%1$s <a href="%2$s">%3$s</a></p></div>',
-				esc_html__( 'The stored Cloudflare API token could not be decrypted (the site security keys probably changed). Please enter the token again.', 'pantheon-clear-caches-plus-cloudflare' ),
+				esc_html__( 'The stored Cloudflare API token could not be decrypted (the site security keys probably changed). Please enter the token again.', 'purge-pantheon-cloudflare-caches' ),
 				esc_url( $this->page_url() ),
-				esc_html__( 'Open settings', 'pantheon-clear-caches-plus-cloudflare' )
+				esc_html__( 'Open settings', 'purge-pantheon-cloudflare-caches' )
 			);
 		}
 
 		if ( ! $this->settings->is_connected() && '' !== Environment::legacy_config_path() ) {
 			printf(
 				'<div class="notice notice-info"><p>%1$s <a class="button button-secondary" href="%2$s">%3$s</a></p></div>',
-				esc_html__( 'A Cloudflare configuration file from the previous version of this plugin was found in files/private.', 'pantheon-clear-caches-plus-cloudflare' ),
+				esc_html__( 'A Cloudflare configuration file from the previous version of this plugin was found in files/private.', 'purge-pantheon-cloudflare-caches' ),
 				esc_url( $this->action_url( 'import_legacy' ) ),
-				esc_html__( 'Import zone and token', 'pantheon-clear-caches-plus-cloudflare' )
+				esc_html__( 'Import zone and token', 'purge-pantheon-cloudflare-caches' )
 			);
 		}
 	}
@@ -299,7 +299,7 @@ class Admin {
 		$wp_admin_bar->add_node(
 			array(
 				'id'    => 'cpcf',
-				'title' => '<span class="ab-icon dashicons dashicons-cloud" style="top:2px;"></span>' . esc_html__( 'Purge Caches', 'pantheon-clear-caches-plus-cloudflare' ),
+				'title' => '<span class="ab-icon dashicons dashicons-cloud" style="top:2px;"></span>' . esc_html__( 'Purge Caches', 'purge-pantheon-cloudflare-caches' ),
 				'href'  => $this->page_url(),
 			)
 		);
@@ -309,7 +309,7 @@ class Admin {
 				array(
 					'parent' => 'cpcf',
 					'id'     => 'cpcf-everything',
-					'title'  => esc_html__( 'Purge everything', 'pantheon-clear-caches-plus-cloudflare' ),
+					'title'  => esc_html__( 'Purge everything', 'purge-pantheon-cloudflare-caches' ),
 					'href'   => $this->action_url( 'purge', array( 'type' => 'everything' ) ),
 				)
 			);
@@ -322,7 +322,7 @@ class Admin {
 						array(
 							'parent' => 'cpcf',
 							'id'     => 'cpcf-post',
-							'title'  => esc_html__( 'Purge this page and related URLs', 'pantheon-clear-caches-plus-cloudflare' ),
+							'title'  => esc_html__( 'Purge this page and related URLs', 'purge-pantheon-cloudflare-caches' ),
 							'href'   => $this->action_url(
 								'purge',
 								array(
@@ -341,7 +341,7 @@ class Admin {
 						array(
 							'parent' => 'cpcf',
 							'id'     => 'cpcf-url',
-							'title'  => esc_html__( 'Purge this URL', 'pantheon-clear-caches-plus-cloudflare' ),
+							'title'  => esc_html__( 'Purge this URL', 'purge-pantheon-cloudflare-caches' ),
 							'href'   => $this->action_url(
 								'purge',
 								array(
@@ -359,7 +359,7 @@ class Admin {
 			array(
 				'parent' => 'cpcf',
 				'id'     => 'cpcf-settings',
-				'title'  => $connected ? esc_html__( 'Settings', 'pantheon-clear-caches-plus-cloudflare' ) : esc_html__( 'Connect to Cloudflare', 'pantheon-clear-caches-plus-cloudflare' ),
+				'title'  => $connected ? esc_html__( 'Settings', 'purge-pantheon-cloudflare-caches' ) : esc_html__( 'Connect to Cloudflare', 'purge-pantheon-cloudflare-caches' ),
 				'href'   => $this->page_url(),
 			)
 		);
@@ -388,7 +388,7 @@ class Admin {
 		check_ajax_referer( self::NONCE, 'nonce' );
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to do that.', 'pantheon-clear-caches-plus-cloudflare' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You are not allowed to do that.', 'purge-pantheon-cloudflare-caches' ) ), 403 );
 		}
 
 		$token = isset( $_POST['token'] ) ? trim( sanitize_text_field( wp_unslash( $_POST['token'] ) ) ) : '';
@@ -398,7 +398,7 @@ class Admin {
 		}
 
 		if ( '' === $token ) {
-			wp_send_json_error( array( 'message' => __( 'Enter an API token first.', 'pantheon-clear-caches-plus-cloudflare' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Enter an API token first.', 'purge-pantheon-cloudflare-caches' ) ) );
 		}
 
 		$api    = new Cloudflare_API( $token );
@@ -415,7 +415,7 @@ class Admin {
 				array(
 					'zones'   => array(),
 					/* translators: %s: error message */
-					'message' => sprintf( __( 'The token is active, but zones could not be listed: %s Make sure the token includes the Zone:Read permission.', 'pantheon-clear-caches-plus-cloudflare' ), $zones->get_error_message() ),
+					'message' => sprintf( __( 'The token is active, but zones could not be listed: %s Make sure the token includes the Zone:Read permission.', 'purge-pantheon-cloudflare-caches' ), $zones->get_error_message() ),
 				)
 			);
 		}
@@ -424,7 +424,7 @@ class Admin {
 			array(
 				'zones'   => $zones,
 				/* translators: %d: number of zones */
-				'message' => sprintf( _n( 'Token is active. %d zone is available.', 'Token is active. %d zones are available.', count( $zones ), 'pantheon-clear-caches-plus-cloudflare' ), count( $zones ) ),
+				'message' => sprintf( _n( 'Token is active. %d zone is available.', 'Token is active. %d zones are available.', count( $zones ), 'purge-pantheon-cloudflare-caches' ), count( $zones ) ),
 				'expires' => isset( $verify['expires_on'] ) ? sanitize_text_field( $verify['expires_on'] ) : '',
 			)
 		);
@@ -437,13 +437,13 @@ class Admin {
 		check_admin_referer( 'cpcf_purge' );
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You are not allowed to do that.', 'pantheon-clear-caches-plus-cloudflare' ) );
+			wp_die( esc_html__( 'You are not allowed to do that.', 'purge-pantheon-cloudflare-caches' ) );
 		}
 
 		$type = isset( $_REQUEST['type'] ) ? sanitize_key( wp_unslash( $_REQUEST['type'] ) ) : 'everything';
 		$user = wp_get_current_user();
 		/* translators: %s: user display name */
-		$reason  = sprintf( __( 'Manual purge by %s', 'pantheon-clear-caches-plus-cloudflare' ), $user->display_name );
+		$reason  = sprintf( __( 'Manual purge by %s', 'purge-pantheon-cloudflare-caches' ), $user->display_name );
 		$results = null;
 		$label   = '';
 
@@ -461,33 +461,33 @@ class Admin {
 				}
 
 				if ( empty( $urls ) ) {
-					$this->set_notice( __( 'Enter at least one URL to purge.', 'pantheon-clear-caches-plus-cloudflare' ), 'error' );
+					$this->set_notice( __( 'Enter at least one URL to purge.', 'purge-pantheon-cloudflare-caches' ), 'error' );
 					$this->redirect_back( 'tools' );
 				}
 
 				$results = $this->purger->execute( false, $urls, array( $reason ), 'manual' );
 				/* translators: %d: number of URLs */
-				$label = sprintf( _n( '%d URL purged.', '%d URLs purged.', count( $urls ), 'pantheon-clear-caches-plus-cloudflare' ), count( $urls ) );
+				$label = sprintf( _n( '%d URL purged.', '%d URLs purged.', count( $urls ), 'purge-pantheon-cloudflare-caches' ), count( $urls ) );
 				break;
 
 			case 'url':
 				$url = isset( $_GET['url'] ) ? esc_url_raw( rawurldecode( sanitize_text_field( wp_unslash( $_GET['url'] ) ) ) ) : '';
 
 				if ( '' === $url ) {
-					$this->set_notice( __( 'No URL was given.', 'pantheon-clear-caches-plus-cloudflare' ), 'error' );
+					$this->set_notice( __( 'No URL was given.', 'purge-pantheon-cloudflare-caches' ), 'error' );
 					$this->redirect_back();
 				}
 
 				$results = $this->purger->execute( false, array( $url ), array( $reason ), 'manual' );
 				/* translators: %s: URL */
-				$label = sprintf( __( 'Purged %s.', 'pantheon-clear-caches-plus-cloudflare' ), '<code>' . esc_html( $url ) . '</code>' );
+				$label = sprintf( __( 'Purged %s.', 'purge-pantheon-cloudflare-caches' ), '<code>' . esc_html( $url ) . '</code>' );
 				break;
 
 			case 'post':
 				$post = isset( $_GET['post_id'] ) ? get_post( absint( wp_unslash( $_GET['post_id'] ) ) ) : null;
 
 				if ( ! $post instanceof \WP_Post ) {
-					$this->set_notice( __( 'The post could not be found.', 'pantheon-clear-caches-plus-cloudflare' ), 'error' );
+					$this->set_notice( __( 'The post could not be found.', 'purge-pantheon-cloudflare-caches' ), 'error' );
 					$this->redirect_back();
 				}
 
@@ -495,12 +495,12 @@ class Admin {
 				$plan['reasons'][] = $reason;
 				$results           = $this->purger->execute_plan( $plan, 'manual' );
 				/* translators: 1: post title, 2: number of URLs */
-				$label = sprintf( __( 'Purged "%1$s" and %2$d related URLs.', 'pantheon-clear-caches-plus-cloudflare' ), esc_html( $post->post_title ), count( $plan['urls'] ) );
+				$label = sprintf( __( 'Purged "%1$s" and %2$d related URLs.', 'purge-pantheon-cloudflare-caches' ), esc_html( $post->post_title ), count( $plan['urls'] ) );
 				break;
 
 			default:
 				$results = $this->purger->execute( true, array(), array( $reason ), 'manual' );
-				$label   = __( 'The entire Cloudflare cache for this zone was purged.', 'pantheon-clear-caches-plus-cloudflare' );
+				$label   = __( 'The entire Cloudflare cache for this zone was purged.', 'purge-pantheon-cloudflare-caches' );
 		}
 
 		$this->notice_from_results( $results, $label );
@@ -518,7 +518,7 @@ class Admin {
 
 		if ( is_wp_error( $cloudflare ) ) {
 			/* translators: %s: error message */
-			$this->set_notice( sprintf( __( 'Cloudflare purge failed: %s', 'pantheon-clear-caches-plus-cloudflare' ), esc_html( $cloudflare->get_error_message() ) ), 'error' );
+			$this->set_notice( sprintf( __( 'Cloudflare purge failed: %s', 'purge-pantheon-cloudflare-caches' ), esc_html( $cloudflare->get_error_message() ) ), 'error' );
 
 			return;
 		}
@@ -526,11 +526,11 @@ class Admin {
 		$extras = array();
 
 		if ( isset( $results['pantheon'] ) && true === $results['pantheon'] ) {
-			$extras[] = __( 'Pantheon edge cache cleared.', 'pantheon-clear-caches-plus-cloudflare' );
+			$extras[] = __( 'Pantheon edge cache cleared.', 'purge-pantheon-cloudflare-caches' );
 		}
 
 		if ( ! empty( $results['object_cache'] ) ) {
-			$extras[] = __( 'Object cache flushed.', 'pantheon-clear-caches-plus-cloudflare' );
+			$extras[] = __( 'Object cache flushed.', 'purge-pantheon-cloudflare-caches' );
 		}
 
 		$this->set_notice( trim( $label . ' ' . implode( ' ', $extras ) ), 'success' );
@@ -543,11 +543,11 @@ class Admin {
 		check_admin_referer( 'cpcf_disconnect' );
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You are not allowed to do that.', 'pantheon-clear-caches-plus-cloudflare' ) );
+			wp_die( esc_html__( 'You are not allowed to do that.', 'purge-pantheon-cloudflare-caches' ) );
 		}
 
 		$this->settings->disconnect();
-		$this->set_notice( __( 'Disconnected from Cloudflare. The stored token was removed.', 'pantheon-clear-caches-plus-cloudflare' ), 'info' );
+		$this->set_notice( __( 'Disconnected from Cloudflare. The stored token was removed.', 'purge-pantheon-cloudflare-caches' ), 'info' );
 
 		wp_safe_redirect( $this->page_url() );
 		exit;
@@ -560,7 +560,7 @@ class Admin {
 		check_admin_referer( 'cpcf_test_connection' );
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You are not allowed to do that.', 'pantheon-clear-caches-plus-cloudflare' ) );
+			wp_die( esc_html__( 'You are not allowed to do that.', 'purge-pantheon-cloudflare-caches' ) );
 		}
 
 		$api    = new Cloudflare_API( $this->settings->get_api_token() );
@@ -568,7 +568,7 @@ class Admin {
 
 		if ( is_wp_error( $verify ) ) {
 			/* translators: %s: error message */
-			$this->set_notice( sprintf( __( 'Token check failed: %s', 'pantheon-clear-caches-plus-cloudflare' ), esc_html( $verify->get_error_message() ) ), 'error' );
+			$this->set_notice( sprintf( __( 'Token check failed: %s', 'purge-pantheon-cloudflare-caches' ), esc_html( $verify->get_error_message() ) ), 'error' );
 			$this->redirect_back();
 		}
 
@@ -576,7 +576,7 @@ class Admin {
 
 		if ( is_wp_error( $zone ) ) {
 			/* translators: %s: error message */
-			$this->set_notice( sprintf( __( 'The token is active but the zone could not be read: %s', 'pantheon-clear-caches-plus-cloudflare' ), esc_html( $zone->get_error_message() ) ), 'error' );
+			$this->set_notice( sprintf( __( 'The token is active but the zone could not be read: %s', 'purge-pantheon-cloudflare-caches' ), esc_html( $zone->get_error_message() ) ), 'error' );
 			$this->redirect_back();
 		}
 
@@ -587,7 +587,7 @@ class Admin {
 		$this->set_notice(
 			sprintf(
 				/* translators: 1: zone name, 2: zone status, 3: plan name */
-				__( 'Connection OK. Zone %1$s is %2$s (%3$s).', 'pantheon-clear-caches-plus-cloudflare' ),
+				__( 'Connection OK. Zone %1$s is %2$s (%3$s).', 'purge-pantheon-cloudflare-caches' ),
 				'<strong>' . esc_html( isset( $zone['name'] ) ? $zone['name'] : $this->settings->get_zone_id() ) . '</strong>',
 				esc_html( isset( $zone['status'] ) ? $zone['status'] : '' ),
 				esc_html( isset( $zone['plan']['name'] ) ? $zone['plan']['name'] : '' )
@@ -605,13 +605,13 @@ class Admin {
 		check_admin_referer( 'cpcf_import_legacy' );
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You are not allowed to do that.', 'pantheon-clear-caches-plus-cloudflare' ) );
+			wp_die( esc_html__( 'You are not allowed to do that.', 'purge-pantheon-cloudflare-caches' ) );
 		}
 
 		$config = Environment::read_legacy_config();
 
 		if ( null === $config ) {
-			$this->set_notice( __( 'The legacy configuration file could not be read.', 'pantheon-clear-caches-plus-cloudflare' ), 'error' );
+			$this->set_notice( __( 'The legacy configuration file could not be read.', 'purge-pantheon-cloudflare-caches' ), 'error' );
 			wp_safe_redirect( $this->page_url() );
 			exit;
 		}
@@ -624,9 +624,9 @@ class Admin {
 
 		if ( is_wp_error( $zone ) ) {
 			/* translators: %s: error message */
-			$this->set_notice( sprintf( __( 'Imported, but the zone could not be verified: %s', 'pantheon-clear-caches-plus-cloudflare' ), esc_html( $zone->get_error_message() ) ), 'warning' );
+			$this->set_notice( sprintf( __( 'Imported, but the zone could not be verified: %s', 'purge-pantheon-cloudflare-caches' ), esc_html( $zone->get_error_message() ) ), 'warning' );
 		} else {
-			$this->set_notice( __( 'Imported the zone and token from the legacy configuration file. You can now delete that file.', 'pantheon-clear-caches-plus-cloudflare' ), 'success' );
+			$this->set_notice( __( 'Imported the zone and token from the legacy configuration file. You can now delete that file.', 'purge-pantheon-cloudflare-caches' ), 'success' );
 		}
 
 		wp_safe_redirect( $this->page_url() );
@@ -640,11 +640,11 @@ class Admin {
 		check_admin_referer( 'cpcf_clear_log' );
 
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You are not allowed to do that.', 'pantheon-clear-caches-plus-cloudflare' ) );
+			wp_die( esc_html__( 'You are not allowed to do that.', 'purge-pantheon-cloudflare-caches' ) );
 		}
 
 		$this->log->clear();
-		$this->set_notice( __( 'Purge log cleared.', 'pantheon-clear-caches-plus-cloudflare' ), 'info' );
+		$this->set_notice( __( 'Purge log cleared.', 'purge-pantheon-cloudflare-caches' ), 'info' );
 
 		wp_safe_redirect( $this->page_url( array( 'tab' => 'tools' ) ) );
 		exit;
@@ -769,9 +769,9 @@ class Admin {
 		$parts   = array();
 		$targets = isset( $entry['targets'] ) ? (array) $entry['targets'] : array();
 		$labels  = array(
-			'cloudflare'   => __( 'Cloudflare', 'pantheon-clear-caches-plus-cloudflare' ),
-			'pantheon'     => __( 'Pantheon', 'pantheon-clear-caches-plus-cloudflare' ),
-			'object_cache' => __( 'Object cache', 'pantheon-clear-caches-plus-cloudflare' ),
+			'cloudflare'   => __( 'Cloudflare', 'purge-pantheon-cloudflare-caches' ),
+			'pantheon'     => __( 'Pantheon', 'purge-pantheon-cloudflare-caches' ),
+			'object_cache' => __( 'Object cache', 'purge-pantheon-cloudflare-caches' ),
 		);
 
 		foreach ( $labels as $key => $label ) {

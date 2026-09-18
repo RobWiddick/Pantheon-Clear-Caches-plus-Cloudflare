@@ -250,7 +250,7 @@ class Purger {
 			$reason = (string) $context['trigger'];
 		} else {
 			/* translators: 1: post type label, 2: post title */
-			$reason = sprintf( __( '%1$s "%2$s" changed', 'pantheon-clear-caches-plus-cloudflare' ), $label, $title );
+			$reason = sprintf( __( '%1$s "%2$s" changed', 'purge-pantheon-cloudflare-caches' ), $label, $title );
 		}
 
 		if ( 'everything' === $mode ) {
@@ -329,7 +329,7 @@ class Purger {
 		if ( ! $plan['everything'] && $limit > 0 && count( $plan['urls'] ) > $limit ) {
 			$plan['everything'] = true;
 			/* translators: 1: number of affected URLs, 2: configured limit */
-			$plan['reasons'][] = sprintf( __( '%1$d affected URLs exceeded the limit of %2$d', 'pantheon-clear-caches-plus-cloudflare' ), count( $plan['urls'] ), $limit );
+			$plan['reasons'][] = sprintf( __( '%1$d affected URLs exceeded the limit of %2$d', 'purge-pantheon-cloudflare-caches' ), count( $plan['urls'] ), $limit );
 		}
 
 		return $this->execute( $plan['everything'], $plan['urls'], $plan['reasons'], $source, $plan['prefixes'], $plan['fallback_urls'] );
@@ -416,7 +416,7 @@ class Purger {
 
 			$this->schedule_retry( $everything, $urls, $prefixes, $fallback_urls, $reasons, $delay );
 			/* translators: %d: seconds */
-			$message .= ' ' . sprintf( __( 'A retry is scheduled in %d seconds.', 'pantheon-clear-caches-plus-cloudflare' ), $delay );
+			$message .= ' ' . sprintf( __( 'A retry is scheduled in %d seconds.', 'purge-pantheon-cloudflare-caches' ), $delay );
 		}
 
 		$this->log->add(
@@ -463,7 +463,7 @@ class Purger {
 			if ( function_exists( 'pantheon_wp_clear_edge_all' ) ) {
 				$result = pantheon_wp_clear_edge_all();
 
-				return ( false === $result ) ? new \WP_Error( 'cpcf_pantheon', __( 'Pantheon edge purge failed.', 'pantheon-clear-caches-plus-cloudflare' ) ) : true;
+				return ( false === $result ) ? new \WP_Error( 'cpcf_pantheon', __( 'Pantheon edge purge failed.', 'purge-pantheon-cloudflare-caches' ) ) : true;
 			}
 
 			return null;
@@ -481,7 +481,7 @@ class Purger {
 
 		$result = pantheon_wp_clear_edge_paths( $paths );
 
-		return ( false === $result ) ? new \WP_Error( 'cpcf_pantheon', __( 'Pantheon edge purge failed.', 'pantheon-clear-caches-plus-cloudflare' ) ) : true;
+		return ( false === $result ) ? new \WP_Error( 'cpcf_pantheon', __( 'Pantheon edge purge failed.', 'purge-pantheon-cloudflare-caches' ) ) : true;
 	}
 
 	/**
@@ -498,7 +498,7 @@ class Purger {
 		$zone_id = $this->settings->get_zone_id();
 
 		if ( '' === $token || '' === $zone_id ) {
-			return new \WP_Error( 'cpcf_not_connected', __( 'Cloudflare is not connected. Add an API token and choose a zone in the plugin settings.', 'pantheon-clear-caches-plus-cloudflare' ) );
+			return new \WP_Error( 'cpcf_not_connected', __( 'Cloudflare is not connected. Add an API token and choose a zone in the plugin settings.', 'purge-pantheon-cloudflare-caches' ) );
 		}
 
 		$api = new Cloudflare_API( $token );
@@ -614,7 +614,7 @@ class Purger {
 		}
 
 		$reasons   = (array) $job['reasons'];
-		$reasons[] = __( 'Retry after rate limit', 'pantheon-clear-caches-plus-cloudflare' );
+		$reasons[] = __( 'Retry after rate limit', 'purge-pantheon-cloudflare-caches' );
 
 		$this->execute( ! empty( $job['everything'] ), (array) $job['urls'], $reasons, 'retry', (array) $job['prefixes'], (array) $job['fallback_urls'] );
 	}

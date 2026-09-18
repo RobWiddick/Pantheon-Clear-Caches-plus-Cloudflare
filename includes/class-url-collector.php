@@ -339,12 +339,12 @@ class URL_Collector {
 			if ( $references['truncated'] ) {
 				$plan['everything'] = true;
 				/* translators: %d: reference lookup limit */
-				$plan['reasons'][] = sprintf( __( 'More than %d pages reference this content', 'pantheon-clear-caches-plus-cloudflare' ), (int) $settings->get( 'reference_limit' ) );
+				$plan['reasons'][] = sprintf( __( 'More than %d pages reference this content', 'purge-pantheon-cloudflare-caches' ), (int) $settings->get( 'reference_limit' ) );
 			}
 
 			if ( $references['in_templates'] ) {
 				$plan['everything'] = true;
-				$plan['reasons'][]  = __( 'A block template, template part or navigation references this content', 'pantheon-clear-caches-plus-cloudflare' );
+				$plan['reasons'][]  = __( 'A block template, template part or navigation references this content', 'purge-pantheon-cloudflare-caches' );
 			}
 		}
 
@@ -373,7 +373,7 @@ class URL_Collector {
 			if ( ! empty( $rule['everything'] ) ) {
 				$plan['everything'] = true;
 				/* translators: %s: post type name */
-				$plan['reasons'][] = sprintf( __( 'A dependency rule for "%s" requires a full purge', 'pantheon-clear-caches-plus-cloudflare' ), $post->post_type );
+				$plan['reasons'][] = sprintf( __( 'A dependency rule for "%s" requires a full purge', 'purge-pantheon-cloudflare-caches' ), $post->post_type );
 			}
 		}
 
@@ -385,7 +385,7 @@ class URL_Collector {
 		// Escalate to a full purge when links to this post changed across the site.
 		if ( $is_public && ! empty( $old['permalink'] ) && $settings->get( 'slug_change_everything' ) && untrailingslashit( $old['permalink'] ) !== untrailingslashit( $permalink ) ) {
 			$plan['everything'] = true;
-			$plan['reasons'][]  = __( 'The URL of the content changed', 'pantheon-clear-caches-plus-cloudflare' );
+			$plan['reasons'][]  = __( 'The URL of the content changed', 'purge-pantheon-cloudflare-caches' );
 		}
 
 		if ( ! empty( $old ) && $this->in_nav_menu( $post->ID ) ) {
@@ -395,7 +395,7 @@ class URL_Collector {
 
 			if ( $menu_changed ) {
 				$plan['everything'] = true;
-				$plan['reasons'][]  = __( 'The content is linked from a navigation menu', 'pantheon-clear-caches-plus-cloudflare' );
+				$plan['reasons'][]  = __( 'The content is linked from a navigation menu', 'purge-pantheon-cloudflare-caches' );
 			}
 		}
 

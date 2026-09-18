@@ -22,7 +22,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="pantheon-clear-caches-plus-cloudflare" />
+				<element value="purge-pantheon-cloudflare-caches" />
 			</property>
 		</properties>
 	</rule>

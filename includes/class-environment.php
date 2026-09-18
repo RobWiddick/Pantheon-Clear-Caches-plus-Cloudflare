@@ -72,11 +72,11 @@ class Environment {
 	public static function describe() {
 		if ( self::is_pantheon() ) {
 			/* translators: %s: Pantheon environment name */
-			return sprintf( __( 'Pantheon environment: %s', 'pantheon-clear-caches-plus-cloudflare' ), self::pantheon_environment() );
+			return sprintf( __( 'Pantheon environment: %s', 'purge-pantheon-cloudflare-caches' ), self::pantheon_environment() );
 		}
 
 		/* translators: %s: WordPress environment type */
-		return sprintf( __( 'WordPress environment type: %s', 'pantheon-clear-caches-plus-cloudflare' ), wp_get_environment_type() );
+		return sprintf( __( 'WordPress environment type: %s', 'purge-pantheon-cloudflare-caches' ), wp_get_environment_type() );
 	}
 
 	/**

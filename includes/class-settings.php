@@ -396,7 +396,7 @@ class Settings {
 				$clean['zone_id']   = $matches[1];
 				$clean['zone_name'] = isset( $matches[2] ) ? sanitize_text_field( $matches[2] ) : '';
 			} else {
-				add_settings_error( self::OPTION, 'cpcf_zone', __( 'The selected zone is not valid. Please verify your token and choose a zone again.', 'pantheon-clear-caches-plus-cloudflare' ) );
+				add_settings_error( self::OPTION, 'cpcf_zone', __( 'The selected zone is not valid. Please verify your token and choose a zone again.', 'purge-pantheon-cloudflare-caches' ) );
 			}
 		}
 

@@ -69,7 +69,7 @@ Useful filters: `cpcf_post_purge_plan`, `cpcf_purge_urls`, `cpcf_purge_prefixes`
 ```bash
 composer global require wp-coding-standards/wpcs phpcompatibility/phpcompatibility-wp dealerdirect/phpcodesniffer-composer-installer
 phpcs                       # uses phpcs.xml.dist
-wp plugin check pantheon-clear-caches-plus-cloudflare   # with the Plugin Check plugin installed
+wp plugin check purge-pantheon-cloudflare-caches   # with the Plugin Check plugin installed
 wp dist-archive .           # builds the ZIP, honouring .distignore
 ```
 

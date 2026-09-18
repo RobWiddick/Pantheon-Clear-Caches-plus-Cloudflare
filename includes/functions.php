@@ -24,7 +24,7 @@ function cpcf() {
  */
 function cpcf_purge_everything( $reason = '' ) {
 	if ( '' === $reason ) {
-		$reason = __( 'Purge everything requested by code', 'pantheon-clear-caches-plus-cloudflare' );
+		$reason = __( 'Purge everything requested by code', 'purge-pantheon-cloudflare-caches' );
 	}
 
 	return cpcf()->purger->execute( true, array(), array( $reason ), 'api' );
@@ -41,7 +41,7 @@ function cpcf_purge_everything( $reason = '' ) {
  */
 function cpcf_purge_urls( array $urls, $reason = '' ) {
 	if ( '' === $reason ) {
-		$reason = __( 'URL purge requested by code', 'pantheon-clear-caches-plus-cloudflare' );
+		$reason = __( 'URL purge requested by code', 'purge-pantheon-cloudflare-caches' );
 	}
 
 	$collector = cpcf()->purger->collector();
@@ -70,7 +70,7 @@ function cpcf_purge_post( $post, $reason = '' ) {
 
 	if ( '' === $reason ) {
 		/* translators: %s: post title */
-		$reason = sprintf( __( 'Purge requested by code for "%s"', 'pantheon-clear-caches-plus-cloudflare' ), $post->post_title );
+		$reason = sprintf( __( 'Purge requested by code for "%s"', 'purge-pantheon-cloudflare-caches' ), $post->post_title );
 	}
 
 	return cpcf()->purger->purge_post_now( $post, array( 'trigger' => $reason ), 'api' );
