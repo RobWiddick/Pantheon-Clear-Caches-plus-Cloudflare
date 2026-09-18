@@ -17,3 +17,4 @@ composer.lock
 package.json
 package-lock.json
 *.zip
+dist
