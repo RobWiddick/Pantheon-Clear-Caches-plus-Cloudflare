@@ -1,0 +1,19 @@
+# Files and folders excluded from the distributed plugin ZIP (used by `wp dist-archive`).
+.git
+.github
+.gitignore
+.gitattributes
+.distignore
+.editorconfig
+.claude
+node_modules
+vendor
+tests
+bin
+README.md
+phpcs.xml.dist
+composer.json
+composer.lock
+package.json
+package-lock.json
+*.zip

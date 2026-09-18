@@ -1,0 +1,1056 @@
+# Copyright (C) 2026 36creative
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: Cache Purge Control for Cloudflare 2.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare/issues\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-17T20:06:04+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: cache-purge-control-for-cloudflare\n"
+
+#. Plugin Name of the plugin
+#: cache-purge-control-for-cloudflare.php
+#: includes/class-admin.php:119
+#: includes/views/settings-page.php:38
+msgid "Cache Purge Control for Cloudflare"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: cache-purge-control-for-cloudflare.php
+msgid "https://github.com/RobWiddick/Pantheon-Clear-Caches-plus-Cloudflare"
+msgstr ""
+
+#. Description of the plugin
+#: cache-purge-control-for-cloudflare.php
+msgid "Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes. Purge everything, or only the URLs an edit actually affects."
+msgstr ""
+
+#. Author of the plugin
+#: cache-purge-control-for-cloudflare.php
+msgid "36creative"
+msgstr ""
+
+#. Author URI of the plugin
+#: cache-purge-control-for-cloudflare.php
+msgid "https://36.agency"
+msgstr ""
+
+#: includes/class-admin.php:120
+#: includes/class-admin.php:302
+msgid "Cloudflare Purge"
+msgstr ""
+
+#: includes/class-admin.php:149
+#: includes/class-admin.php:362
+msgid "Settings"
+msgstr ""
+
+#: includes/class-admin.php:176
+msgid "Verifying token…"
+msgstr ""
+
+#: includes/class-admin.php:177
+#: includes/views/settings-page.php:126
+msgid "— Select a zone —"
+msgstr ""
+
+#: includes/class-admin.php:178
+msgid "The token is valid but no zones were returned. Make sure it includes Zone:Read for the zone you want to purge."
+msgstr ""
+
+#: includes/class-admin.php:179
+msgid "The request failed. Please try again."
+msgstr ""
+
+#: includes/class-admin.php:180
+msgid "Choose a zone and click \"Save Changes\" to finish connecting."
+msgstr ""
+
+#: includes/class-admin.php:181
+msgid "Remove"
+msgstr ""
+
+#: includes/class-admin.php:228
+msgid "Cache Purge Control for Cloudflare is not connected to Cloudflare yet."
+msgstr ""
+
+#: includes/class-admin.php:230
+msgid "Connect now"
+msgstr ""
+
+#: includes/class-admin.php:237
+msgid "The stored Cloudflare API token could not be decrypted (the site security keys probably changed). Please enter the token again."
+msgstr ""
+
+#: includes/class-admin.php:239
+msgid "Open settings"
+msgstr ""
+
+#: includes/class-admin.php:246
+msgid "A Cloudflare configuration file from the previous version of this plugin was found in files/private."
+msgstr ""
+
+#: includes/class-admin.php:248
+msgid "Import zone and token"
+msgstr ""
+
+#: includes/class-admin.php:312
+#: includes/class-meta-box.php:124
+#: includes/views/settings-page.php:29
+#: includes/views/settings-page.php:160
+#: includes/views/settings-page.php:303
+#: includes/views/settings-page.php:353
+msgid "Purge everything"
+msgstr ""
+
+#: includes/class-admin.php:325
+msgid "Purge this page and related URLs"
+msgstr ""
+
+#: includes/class-admin.php:344
+msgid "Purge this URL"
+msgstr ""
+
+#: includes/class-admin.php:362
+#: includes/views/settings-page.php:83
+msgid "Connect to Cloudflare"
+msgstr ""
+
+#: includes/class-admin.php:391
+#: includes/class-admin.php:440
+#: includes/class-admin.php:546
+#: includes/class-admin.php:563
+#: includes/class-admin.php:608
+#: includes/class-admin.php:643
+msgid "You are not allowed to do that."
+msgstr ""
+
+#: includes/class-admin.php:401
+msgid "Enter an API token first."
+msgstr ""
+
+#. translators: %s: error message
+#: includes/class-admin.php:418
+#, php-format
+msgid "The token is active, but zones could not be listed: %s Make sure the token includes the Zone:Read permission."
+msgstr ""
+
+#. translators: %d: number of zones
+#: includes/class-admin.php:427
+#, php-format
+msgid "Token is active. %d zone is available."
+msgid_plural "Token is active. %d zones are available."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: user display name
+#: includes/class-admin.php:446
+#, php-format
+msgid "Manual purge by %s"
+msgstr ""
+
+#: includes/class-admin.php:464
+msgid "Enter at least one URL to purge."
+msgstr ""
+
+#. translators: %d: number of URLs
+#: includes/class-admin.php:470
+#, php-format
+msgid "%d URL purged."
+msgid_plural "%d URLs purged."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-admin.php:477
+msgid "No URL was given."
+msgstr ""
+
+#. translators: %s: URL
+#: includes/class-admin.php:483
+#, php-format
+msgid "Purged %s."
+msgstr ""
+
+#: includes/class-admin.php:490
+msgid "The post could not be found."
+msgstr ""
+
+#. translators: 1: post title, 2: number of URLs
+#: includes/class-admin.php:498
+#, php-format
+msgid "Purged \"%1$s\" and %2$d related URLs."
+msgstr ""
+
+#: includes/class-admin.php:503
+msgid "The entire Cloudflare cache for this zone was purged."
+msgstr ""
+
+#. translators: %s: error message
+#: includes/class-admin.php:521
+#, php-format
+msgid "Cloudflare purge failed: %s"
+msgstr ""
+
+#: includes/class-admin.php:529
+msgid "Pantheon edge cache cleared."
+msgstr ""
+
+#: includes/class-admin.php:533
+msgid "Object cache flushed."
+msgstr ""
+
+#: includes/class-admin.php:550
+msgid "Disconnected from Cloudflare. The stored token was removed."
+msgstr ""
+
+#. translators: %s: error message
+#: includes/class-admin.php:571
+#, php-format
+msgid "Token check failed: %s"
+msgstr ""
+
+#. translators: %s: error message
+#: includes/class-admin.php:579
+#, php-format
+msgid "The token is active but the zone could not be read: %s"
+msgstr ""
+
+#. translators: 1: zone name, 2: zone status, 3: plan name
+#: includes/class-admin.php:590
+#, php-format
+msgid "Connection OK. Zone %1$s is %2$s (%3$s)."
+msgstr ""
+
+#: includes/class-admin.php:614
+msgid "The legacy configuration file could not be read."
+msgstr ""
+
+#. translators: %s: error message
+#: includes/class-admin.php:627
+#, php-format
+msgid "Imported, but the zone could not be verified: %s"
+msgstr ""
+
+#: includes/class-admin.php:629
+msgid "Imported the zone and token from the legacy configuration file. You can now delete that file."
+msgstr ""
+
+#: includes/class-admin.php:647
+msgid "Purge log cleared."
+msgstr ""
+
+#: includes/class-admin.php:772
+#: includes/views/settings-page.php:44
+msgid "Cloudflare"
+msgstr ""
+
+#: includes/class-admin.php:773
+msgid "Pantheon"
+msgstr ""
+
+#: includes/class-admin.php:774
+#: includes/views/settings-page.php:239
+msgid "Object cache"
+msgstr ""
+
+#. translators: %s: token status reported by Cloudflare
+#: includes/class-cloudflare-api.php:112
+#, php-format
+msgid "The API token is not active (status: %s)."
+msgstr ""
+
+#: includes/class-cloudflare-api.php:274
+msgid "No Cloudflare zone is selected."
+msgstr ""
+
+#: includes/class-cloudflare-api.php:293
+msgid "No Cloudflare API token is configured."
+msgstr ""
+
+#: includes/class-cloudflare-api.php:339
+msgid "Cloudflare rate limited the request (HTTP 429)."
+msgstr ""
+
+#. translators: %d: HTTP status code
+#: includes/class-cloudflare-api.php:348
+#, php-format
+msgid "Unexpected response from Cloudflare (HTTP %d)."
+msgstr ""
+
+#. translators: %d: HTTP status code
+#: includes/class-cloudflare-api.php:365
+#, php-format
+msgid "Request failed (HTTP %d)."
+msgstr ""
+
+#. translators: %s: error details returned by Cloudflare
+#: includes/class-cloudflare-api.php:373
+#, php-format
+msgid "Cloudflare API error: %s"
+msgstr ""
+
+#. translators: %s: Pantheon environment name
+#: includes/class-environment.php:75
+#, php-format
+msgid "Pantheon environment: %s"
+msgstr ""
+
+#. translators: %s: WordPress environment type
+#: includes/class-environment.php:79
+#, php-format
+msgid "WordPress environment type: %s"
+msgstr ""
+
+#. translators: %s: post title
+#: includes/class-hooks.php:405
+#, php-format
+msgid "Comments changed on \"%s\""
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name
+#: includes/class-hooks.php:541
+#, php-format
+msgid "%1$s \"%2$s\" was deleted"
+msgstr ""
+
+#. translators: 1: taxonomy label, 2: term name
+#: includes/class-hooks.php:544
+#, php-format
+msgid "%1$s \"%2$s\" was edited"
+msgstr ""
+
+#. translators: %s: user display name
+#: includes/class-hooks.php:633
+#, php-format
+msgid "Author \"%s\" updated"
+msgstr ""
+
+#: includes/class-hooks.php:648
+msgid "Navigation menu updated"
+msgstr ""
+
+#: includes/class-hooks.php:655
+msgid "Customizer settings published"
+msgstr ""
+
+#: includes/class-hooks.php:662
+msgid "Theme switched"
+msgstr ""
+
+#: includes/class-hooks.php:669
+msgid "Permalink structure changed"
+msgstr ""
+
+#: includes/class-hooks.php:679
+msgid "Widget updated"
+msgstr ""
+
+#. translators: %s: update type (core, plugin, theme)
+#: includes/class-hooks.php:695
+#, php-format
+msgid "Update installed (%s)"
+msgstr ""
+
+#. translators: %s: plugin file name
+#: includes/class-hooks.php:710
+#, php-format
+msgid "Plugin activated or deactivated (%s)"
+msgstr ""
+
+#. translators: %s: option name
+#: includes/class-hooks.php:773
+#, php-format
+msgid "Setting \"%s\" changed"
+msgstr ""
+
+#: includes/class-hooks.php:790
+msgid "ACF options page saved"
+msgstr ""
+
+#: includes/class-hooks.php:831
+msgid "Content changed"
+msgstr ""
+
+#. translators: 1: post type label, 2: post title
+#: includes/class-hooks.php:851
+#, php-format
+msgid "%1$s \"%2$s\" published"
+msgstr ""
+
+#. translators: 1: post type label, 2: post title
+#: includes/class-hooks.php:854
+#, php-format
+msgid "%1$s \"%2$s\" trashed"
+msgstr ""
+
+#. translators: 1: post type label, 2: post title
+#: includes/class-hooks.php:857
+#, php-format
+msgid "%1$s \"%2$s\" unpublished"
+msgstr ""
+
+#. translators: 1: post type label, 2: post title
+#: includes/class-hooks.php:860
+#, php-format
+msgid "%1$s \"%2$s\" deleted"
+msgstr ""
+
+#. translators: 1: post type label, 2: post title
+#: includes/class-hooks.php:863
+#, php-format
+msgid "%1$s \"%2$s\" updated"
+msgstr ""
+
+#: includes/class-meta-box.php:105
+msgid "Cache Purge Control"
+msgstr ""
+
+#: includes/class-meta-box.php:125
+#: includes/views/settings-page.php:30
+#: includes/views/settings-page.php:165
+msgid "Purge affected URLs only"
+msgstr ""
+
+#: includes/class-meta-box.php:126
+#: includes/views/settings-page.php:31
+msgid "Do not purge"
+msgstr ""
+
+#: includes/class-meta-box.php:132
+msgid "When this is saved"
+msgstr ""
+
+#. translators: %s: the purge mode inherited from the post type settings
+#: includes/class-meta-box.php:137
+#, php-format
+msgid "Use post type setting (%s)"
+msgstr ""
+
+#: includes/class-meta-box.php:146
+msgid "Also purge these URLs"
+msgstr ""
+
+#: includes/class-meta-box.php:148
+msgid "One per line. Paths are relative to the site. End a path with * to purge everything under it."
+msgstr ""
+
+#: includes/class-meta-box.php:151
+msgid "Purge this when any of these change"
+msgstr ""
+
+#: includes/class-meta-box.php:158
+msgid "Use this for pages that list or embed other content, such as a team page built from \"People\" entries."
+msgstr ""
+
+#. translators: 1: post type label, 2: post title
+#: includes/class-purger.php:253
+#, php-format
+msgid "%1$s \"%2$s\" changed"
+msgstr ""
+
+#. translators: 1: number of affected URLs, 2: configured limit
+#: includes/class-purger.php:332
+#, php-format
+msgid "%1$d affected URLs exceeded the limit of %2$d"
+msgstr ""
+
+#. translators: %d: seconds
+#: includes/class-purger.php:419
+#, php-format
+msgid "A retry is scheduled in %d seconds."
+msgstr ""
+
+#: includes/class-purger.php:466
+#: includes/class-purger.php:484
+msgid "Pantheon edge purge failed."
+msgstr ""
+
+#: includes/class-purger.php:501
+msgid "Cloudflare is not connected. Add an API token and choose a zone in the plugin settings."
+msgstr ""
+
+#: includes/class-purger.php:617
+msgid "Retry after rate limit"
+msgstr ""
+
+#: includes/class-settings.php:399
+msgid "The selected zone is not valid. Please verify your token and choose a zone again."
+msgstr ""
+
+#. translators: %d: reference lookup limit
+#: includes/class-url-collector.php:342
+#, php-format
+msgid "More than %d pages reference this content"
+msgstr ""
+
+#: includes/class-url-collector.php:347
+msgid "A block template, template part or navigation references this content"
+msgstr ""
+
+#. translators: %s: post type name
+#: includes/class-url-collector.php:376
+#, php-format
+msgid "A dependency rule for \"%s\" requires a full purge"
+msgstr ""
+
+#: includes/class-url-collector.php:388
+msgid "The URL of the content changed"
+msgstr ""
+
+#: includes/class-url-collector.php:398
+msgid "The content is linked from a navigation menu"
+msgstr ""
+
+#: includes/functions.php:27
+msgid "Purge everything requested by code"
+msgstr ""
+
+#: includes/functions.php:44
+msgid "URL purge requested by code"
+msgstr ""
+
+#. translators: %s: post title
+#: includes/functions.php:73
+#, php-format
+msgid "Purge requested by code for \"%s\""
+msgstr ""
+
+#: includes/views/settings-page.php:21
+#: includes/views/settings-page.php:137
+msgid "Connection"
+msgstr ""
+
+#: includes/views/settings-page.php:22
+msgid "Purge Behavior"
+msgstr ""
+
+#: includes/views/settings-page.php:23
+msgid "Targeted Purge Scope"
+msgstr ""
+
+#: includes/views/settings-page.php:24
+msgid "Dependency Rules"
+msgstr ""
+
+#: includes/views/settings-page.php:25
+msgid "Tools & Log"
+msgstr ""
+
+#: includes/views/settings-page.php:28
+msgid "Use default"
+msgstr ""
+
+#: includes/views/settings-page.php:46
+msgid "Connected"
+msgstr ""
+
+#: includes/views/settings-page.php:49
+msgid "Not connected"
+msgstr ""
+
+#: includes/views/settings-page.php:53
+#: includes/views/settings-page.php:152
+msgid "Automatic purging"
+msgstr ""
+
+#: includes/views/settings-page.php:55
+msgid "Off"
+msgstr ""
+
+#: includes/views/settings-page.php:57
+msgid "Paused"
+msgstr ""
+
+#: includes/views/settings-page.php:58
+msgid "This is not a production environment."
+msgstr ""
+
+#: includes/views/settings-page.php:60
+msgid "On"
+msgstr ""
+
+#: includes/views/settings-page.php:61
+msgid "Default: purge everything"
+msgstr ""
+
+#: includes/views/settings-page.php:61
+msgid "Default: purge affected URLs only"
+msgstr ""
+
+#: includes/views/settings-page.php:65
+msgid "Environment"
+msgstr ""
+
+#: includes/views/settings-page.php:68
+msgid "Pantheon edge purge available"
+msgstr ""
+
+#: includes/views/settings-page.php:85
+msgid "The plugin talks to Cloudflare with an API token that is limited to reading your zones and purging their cache. Nothing else on your Cloudflare account is accessible with it."
+msgstr ""
+
+#. translators: %s: link to the Cloudflare dashboard
+#: includes/views/settings-page.php:92
+#, php-format
+msgid "Open %s. The form is pre-filled with the two permissions the plugin needs (Zone: Read and Cache Purge). Optionally restrict it to a single zone, then create the token."
+msgstr ""
+
+#: includes/views/settings-page.php:93
+msgid "Cloudflare's \"Create API token\" page"
+msgstr ""
+
+#: includes/views/settings-page.php:97
+msgid "Paste the token below and click \"Verify token & load zones\"."
+msgstr ""
+
+#: includes/views/settings-page.php:98
+msgid "Choose the zone (domain) this site is served from and save."
+msgstr ""
+
+#: includes/views/settings-page.php:103
+msgid "API token"
+msgstr ""
+
+#: includes/views/settings-page.php:106
+msgid "is defined in wp-config.php, so the token cannot be changed here."
+msgstr ""
+
+#: includes/views/settings-page.php:108
+msgid "•••••••• (token saved; paste a new one to replace it)"
+msgstr ""
+
+#: includes/views/settings-page.php:108
+msgid "Paste your Cloudflare API token"
+msgstr ""
+
+#: includes/views/settings-page.php:110
+msgid "Verify token & load zones"
+msgstr ""
+
+#: includes/views/settings-page.php:114
+msgid "The token is stored encrypted in the database. To keep it out of the database entirely, define CPCF_CLOUDFLARE_API_TOKEN (and optionally CPCF_CLOUDFLARE_ZONE_ID) in wp-config.php instead."
+msgstr ""
+
+#: includes/views/settings-page.php:120
+msgid "Zone"
+msgstr ""
+
+#: includes/views/settings-page.php:123
+msgid "(defined in wp-config.php)"
+msgstr ""
+
+#: includes/views/settings-page.php:131
+msgid "Verify the token to load the zones it can access. The zone matching this site's domain is selected automatically."
+msgstr ""
+
+#: includes/views/settings-page.php:139
+msgid "Test connection"
+msgstr ""
+
+#: includes/views/settings-page.php:141
+msgid "Remove the stored token and zone?"
+msgstr ""
+
+#: includes/views/settings-page.php:141
+msgid "Disconnect"
+msgstr ""
+
+#: includes/views/settings-page.php:150
+msgid "When content changes"
+msgstr ""
+
+#: includes/views/settings-page.php:152
+msgid "Purge caches automatically when content changes."
+msgstr ""
+
+#: includes/views/settings-page.php:153
+msgid "Production only"
+msgstr ""
+
+#: includes/views/settings-page.php:153
+msgid "Only purge automatically in production (Pantheon \"live\", or the WordPress environment type \"production\"). Manual purges always work."
+msgstr ""
+
+#: includes/views/settings-page.php:155
+msgid "Default purge mode"
+msgstr ""
+
+#: includes/views/settings-page.php:161
+msgid "Clears the whole zone on every change. Simple and always correct, but every visitor hits your origin until the cache refills. Best for smaller sites or sites with many cross-references between pages."
+msgstr ""
+
+#: includes/views/settings-page.php:166
+msgid "Purges the edited page plus the pages that show it: the home page, archives, feeds, parent pages, and any content that embeds or links to it. Configure what counts as \"affected\" on the Targeted Purge Scope tab, and declare relationships the plugin cannot detect on the Dependency Rules tab."
+msgstr ""
+
+#: includes/views/settings-page.php:172
+msgid "Per post type"
+msgstr ""
+
+#: includes/views/settings-page.php:175
+msgid "Post type"
+msgstr ""
+
+#: includes/views/settings-page.php:175
+msgid "Purge mode"
+msgstr ""
+
+#: includes/views/settings-page.php:187
+msgid "Use default (affected URLs only)"
+msgstr ""
+
+#: includes/views/settings-page.php:200
+msgid "Media defaults to targeted purging because uploads happen often. Individual posts can also override their post type from the \"Cache Purge Control\" box in the editor."
+msgstr ""
+
+#: includes/views/settings-page.php:203
+msgid "URL changes"
+msgstr ""
+
+#: includes/views/settings-page.php:203
+msgid "Purge everything when the URL (slug) of published content changes, because links to it appear across the site."
+msgstr ""
+
+#: includes/views/settings-page.php:204
+msgid "Site-wide changes"
+msgstr ""
+
+#: includes/views/settings-page.php:204
+msgid "Purge everything when menus, widgets, Customizer settings, the theme, templates, site settings, ACF options pages, or plugins change."
+msgstr ""
+
+#: includes/views/settings-page.php:208
+msgid "Category / tag / term edits"
+msgstr ""
+
+#: includes/views/settings-page.php:210
+msgid "Follow the default purge mode"
+msgstr ""
+
+#: includes/views/settings-page.php:211
+msgid "Always purge everything"
+msgstr ""
+
+#: includes/views/settings-page.php:212
+msgid "Purge the term archive and home page only"
+msgstr ""
+
+#: includes/views/settings-page.php:213
+#: includes/views/settings-page.php:223
+msgid "Do nothing"
+msgstr ""
+
+#: includes/views/settings-page.php:215
+msgid "Renaming a term changes every page that displays it; a full purge is the safe choice."
+msgstr ""
+
+#: includes/views/settings-page.php:219
+msgid "Comments"
+msgstr ""
+
+#: includes/views/settings-page.php:221
+msgid "Purge the commented post and its feeds"
+msgstr ""
+
+#: includes/views/settings-page.php:222
+msgid "Treat like a post update"
+msgstr ""
+
+#: includes/views/settings-page.php:229
+msgid "Other caches"
+msgstr ""
+
+#: includes/views/settings-page.php:234
+msgid "Pantheon edge cache"
+msgstr ""
+
+#: includes/views/settings-page.php:236
+msgid "Also clear the Pantheon Global CDN (Pantheon Advanced Page Cache) for the same URLs, or entirely when purging everything."
+msgstr ""
+
+#: includes/views/settings-page.php:237
+msgid "Also clear the Pantheon Global CDN when the Pantheon Advanced Page Cache plugin is active. (Not detected on this site.)"
+msgstr ""
+
+#: includes/views/settings-page.php:239
+msgid "Also flush the WordPress object cache (Redis, Memcached…) on every purge. Rarely needed and can slow down busy sites."
+msgstr ""
+
+#: includes/views/settings-page.php:240
+msgid "Admin bar"
+msgstr ""
+
+#: includes/views/settings-page.php:240
+msgid "Show a \"Cloudflare Purge\" menu in the admin bar with purge shortcuts."
+msgstr ""
+
+#: includes/views/settings-page.php:241
+msgid "Purge log"
+msgstr ""
+
+#: includes/views/settings-page.php:241
+msgid "Keep a log of the last 50 purges on the Tools & Log tab."
+msgstr ""
+
+#: includes/views/settings-page.php:247
+msgid "What a targeted purge includes"
+msgstr ""
+
+#: includes/views/settings-page.php:248
+msgid "These options apply whenever content is purged in \"affected URLs only\" mode. The edited page itself (and its previous URL, if it changed) is always included."
+msgstr ""
+
+#: includes/views/settings-page.php:250
+msgid "Home page"
+msgstr ""
+
+#: includes/views/settings-page.php:250
+msgid "The front page and the blog index, including its paginated pages."
+msgstr ""
+
+#: includes/views/settings-page.php:251
+msgid "Post type archive"
+msgstr ""
+
+#: includes/views/settings-page.php:251
+msgid "The archive of the content's post type (for custom post types that have one)."
+msgstr ""
+
+#: includes/views/settings-page.php:252
+msgid "Term archives"
+msgstr ""
+
+#: includes/views/settings-page.php:252
+msgid "Category, tag and custom taxonomy archives the content belongs to (and belonged to before the change)."
+msgstr ""
+
+#: includes/views/settings-page.php:253
+msgid "Author archive"
+msgstr ""
+
+#: includes/views/settings-page.php:253
+msgid "The author's archive page."
+msgstr ""
+
+#: includes/views/settings-page.php:254
+msgid "Date archives"
+msgstr ""
+
+#: includes/views/settings-page.php:254
+msgid "Year, month and day archives (blog posts only)."
+msgstr ""
+
+#: includes/views/settings-page.php:255
+msgid "Feeds"
+msgstr ""
+
+#: includes/views/settings-page.php:255
+msgid "The site feeds and the feeds of the archives above."
+msgstr ""
+
+#: includes/views/settings-page.php:256
+msgid "Parent pages"
+msgstr ""
+
+#: includes/views/settings-page.php:256
+msgid "Parent pages of hierarchical content (they often list their children)."
+msgstr ""
+
+#: includes/views/settings-page.php:257
+msgid "Previous / next posts"
+msgstr ""
+
+#: includes/views/settings-page.php:257
+msgid "The neighbouring posts, whose \"previous\" and \"next\" links change."
+msgstr ""
+
+#: includes/views/settings-page.php:261
+msgid "Content that references it"
+msgstr ""
+
+#: includes/views/settings-page.php:263
+msgid "Scan content and custom fields (recommended)"
+msgstr ""
+
+#: includes/views/settings-page.php:264
+msgid "Scan content only"
+msgstr ""
+
+#: includes/views/settings-page.php:265
+msgid "Do not scan"
+msgstr ""
+
+#: includes/views/settings-page.php:267
+msgid "Finds published pages that embed, link to, or query the changed content: block references, synced patterns, images and galleries, shortcodes, links, featured images, and ACF relationship / post object / image fields stored in custom fields. If more pages match than the limit below, everything is purged instead."
+msgstr ""
+
+#: includes/views/settings-page.php:269
+msgid "Reference limit"
+msgstr ""
+
+#: includes/views/settings-page.php:269
+msgid "Maximum number of referencing pages to look up per change."
+msgstr ""
+
+#: includes/views/settings-page.php:272
+msgid "Archive pagination"
+msgstr ""
+
+#: includes/views/settings-page.php:274
+msgid "Purge by prefix (all pages of an archive, recommended)"
+msgstr ""
+
+#: includes/views/settings-page.php:275
+msgid "Purge paginated URLs one by one"
+msgstr ""
+
+#: includes/views/settings-page.php:277
+msgid "Purge by prefix clears every cached page under an archive path (e.g. /category/news/ and all of its /page/N/ pages) in one request. It is available on all Cloudflare plans; if Cloudflare rejects it the plugin falls back to purging the paginated URLs."
+msgstr ""
+
+#: includes/views/settings-page.php:279
+msgid "Paginated pages"
+msgstr ""
+
+#: includes/views/settings-page.php:279
+msgid "How many pages of each archive to purge when purging URLs one by one (also used for the Pantheon edge cache). 0 purges only the first page."
+msgstr ""
+
+#: includes/views/settings-page.php:280
+msgid "http and https"
+msgstr ""
+
+#: includes/views/settings-page.php:280
+msgid "Purge both the http:// and https:// version of each URL. Cloudflare caches them separately."
+msgstr ""
+
+#: includes/views/settings-page.php:281
+msgid "Full purge threshold"
+msgstr ""
+
+#: includes/views/settings-page.php:281
+msgid "If a targeted purge would touch more URLs than this, purge everything instead. 0 disables the threshold."
+msgstr ""
+
+#: includes/views/settings-page.php:284
+msgid "Always purge"
+msgstr ""
+
+#: includes/views/settings-page.php:287
+msgid "URLs or paths purged with every targeted purge, one per line. End a path with * to purge everything under it."
+msgstr ""
+
+#: includes/views/settings-page.php:294
+msgid "Dependency rules"
+msgstr ""
+
+#: includes/views/settings-page.php:295
+msgid "Some relationships cannot be detected from the database: a template that queries \"Team member\" entries for the /about/ page, a plugin that renders a list from custom tables, or a page built by a page builder. Declare them here: when content of the chosen type changes, the listed URLs are purged as well."
+msgstr ""
+
+#: includes/views/settings-page.php:296
+msgid "Tip: editors can also declare this from the other direction. The \"Cache Purge Control\" box on any page has a \"Purge this when any of these change\" option."
+msgstr ""
+
+#: includes/views/settings-page.php:301
+msgid "When this changes"
+msgstr ""
+
+#: includes/views/settings-page.php:302
+msgid "Also purge these URLs (one per line, * for prefixes)"
+msgstr ""
+
+#: includes/views/settings-page.php:319
+#: includes/views/settings-page.php:337
+msgid "Remove rule"
+msgstr ""
+
+#: includes/views/settings-page.php:324
+msgid "Add rule"
+msgstr ""
+
+#: includes/views/settings-page.php:348
+msgid "Purge now"
+msgstr ""
+
+#: includes/views/settings-page.php:350
+msgid "Connect to Cloudflare first to use the purge tools."
+msgstr ""
+
+#: includes/views/settings-page.php:353
+msgid "Purge the entire cache for this zone?"
+msgstr ""
+
+#: includes/views/settings-page.php:359
+msgid "Purge specific URLs"
+msgstr ""
+
+#: includes/views/settings-page.php:361
+msgid "One URL or path per line."
+msgstr ""
+
+#: includes/views/settings-page.php:362
+msgid "Purge URLs"
+msgstr ""
+
+#: includes/views/settings-page.php:366
+msgid "Recent purges"
+msgstr ""
+
+#: includes/views/settings-page.php:369
+msgid "No purges have been logged yet."
+msgstr ""
+
+#: includes/views/settings-page.php:369
+msgid "Logging is disabled."
+msgstr ""
+
+#: includes/views/settings-page.php:374
+msgid "When"
+msgstr ""
+
+#: includes/views/settings-page.php:375
+msgid "Trigger"
+msgstr ""
+
+#: includes/views/settings-page.php:376
+msgid "What was purged"
+msgstr ""
+
+#: includes/views/settings-page.php:377
+msgid "Result"
+msgstr ""
+
+#: includes/views/settings-page.php:390
+msgid "Everything"
+msgstr ""
+
+#. translators: %d: number of URLs
+#: includes/views/settings-page.php:396
+#, php-format
+msgid "%d URL"
+msgid_plural "%d URLs"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of prefixes
+#: includes/views/settings-page.php:400
+#, php-format
+msgid "%d prefix"
+msgid_plural "%d prefixes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/views/settings-page.php:405
+msgid "Show"
+msgstr ""
+
+#: includes/views/settings-page.php:431
+msgid "Clear log"
+msgstr ""
