@@ -116,8 +116,8 @@ class Admin {
 	 */
 	public function menu() {
 		add_options_page(
-			__( 'Cache Purge Control for Cloudflare', 'pantheon-clear-caches-plus-cloudflare' ),
-			__( 'Cloudflare Purge', 'pantheon-clear-caches-plus-cloudflare' ),
+			__( 'Purge Pantheon + Cloudflare Caches', 'pantheon-clear-caches-plus-cloudflare' ),
+			__( 'Purge Caches', 'pantheon-clear-caches-plus-cloudflare' ),
 			self::CAPABILITY,
 			self::PAGE,
 			array( $this, 'render_page' )
@@ -225,7 +225,7 @@ class Admin {
 		if ( ! $this->settings->is_connected() && ! $is_ours ) {
 			printf(
 				'<div class="notice notice-warning"><p>%1$s <a href="%2$s">%3$s</a></p></div>',
-				esc_html__( 'Cache Purge Control for Cloudflare is not connected to Cloudflare yet.', 'pantheon-clear-caches-plus-cloudflare' ),
+				esc_html__( 'Purge Pantheon + Cloudflare Caches is not connected to Cloudflare yet.', 'pantheon-clear-caches-plus-cloudflare' ),
 				esc_url( $this->page_url() ),
 				esc_html__( 'Connect now', 'pantheon-clear-caches-plus-cloudflare' )
 			);
@@ -299,7 +299,7 @@ class Admin {
 		$wp_admin_bar->add_node(
 			array(
 				'id'    => 'cpcf',
-				'title' => '<span class="ab-icon dashicons dashicons-cloud" style="top:2px;"></span>' . esc_html__( 'Cloudflare Purge', 'pantheon-clear-caches-plus-cloudflare' ),
+				'title' => '<span class="ab-icon dashicons dashicons-cloud" style="top:2px;"></span>' . esc_html__( 'Purge Caches', 'pantheon-clear-caches-plus-cloudflare' ),
 				'href'  => $this->page_url(),
 			)
 		);

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Cache Purge Control for Cloudflare">
+<ruleset name="Purge Pantheon + Cloudflare Caches">
 	<description>WordPress coding standards for the plugin.</description>
 
 	<file>.</file>

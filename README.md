@@ -1,4 +1,4 @@
-# Cache Purge Control for Cloudflare
+# Purge Pantheon + Cloudflare Caches
 
 Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes, with granular control over *how much* is purged: everything, or only the URLs an edit actually affects.
 
@@ -28,7 +28,7 @@ The original plugin fixed this by purging the entire Cloudflare zone on every sa
 ## Installation
 
 1. Install and activate the plugin: upload the ZIP through **Plugins → Add New**, or clone this repository into `wp-content/plugins/`.
-2. Go to **Settings → Cloudflare Purge** and follow the three steps on the Connection tab.
+2. Go to **Settings → Purge Caches** and follow the three steps on the Connection tab.
 3. Review the **Purge Behavior** tab.
 
 ## Why an API token and not OAuth?

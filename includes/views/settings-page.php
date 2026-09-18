@@ -35,7 +35,7 @@ $cpcf_rules       = $settings->rules();
 $cpcf_post_types  = $admin->purgeable_post_types();
 ?>
 <div class="wrap cpcf-wrap">
-	<h1><?php esc_html_e( 'Cache Purge Control for Cloudflare', 'pantheon-clear-caches-plus-cloudflare' ); ?></h1>
+	<h1><?php esc_html_e( 'Purge Pantheon + Cloudflare Caches', 'pantheon-clear-caches-plus-cloudflare' ); ?></h1>
 
 	<?php settings_errors( Settings::OPTION ); ?>
 
@@ -237,7 +237,7 @@ $cpcf_post_types  = $admin->purgeable_post_types();
 						: __( 'Also clear the Pantheon Global CDN when the Pantheon Advanced Page Cache plugin is active. (Not detected on this site.)', 'pantheon-clear-caches-plus-cloudflare' )
 				);
 				$admin->checkbox( 'flush_object_cache', __( 'Object cache', 'pantheon-clear-caches-plus-cloudflare' ), __( 'Also flush the WordPress object cache (Redis, Memcached…) on every purge. Rarely needed and can slow down busy sites.', 'pantheon-clear-caches-plus-cloudflare' ) );
-				$admin->checkbox( 'admin_bar', __( 'Admin bar', 'pantheon-clear-caches-plus-cloudflare' ), __( 'Show a "Cloudflare Purge" menu in the admin bar with purge shortcuts.', 'pantheon-clear-caches-plus-cloudflare' ) );
+				$admin->checkbox( 'admin_bar', __( 'Admin bar', 'pantheon-clear-caches-plus-cloudflare' ), __( 'Show a "Purge Caches" menu in the admin bar with purge shortcuts.', 'pantheon-clear-caches-plus-cloudflare' ) );
 				$admin->checkbox( 'log_enabled', __( 'Purge log', 'pantheon-clear-caches-plus-cloudflare' ), __( 'Keep a log of the last 50 purges on the Tools & Log tab.', 'pantheon-clear-caches-plus-cloudflare' ) );
 				?>
 			</table>

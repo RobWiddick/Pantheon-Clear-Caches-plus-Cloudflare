@@ -1,4 +1,4 @@
-=== Cache Purge Control for Cloudflare ===
+=== Purge Pantheon + Cloudflare Caches ===
 Contributors: robwiddick
 Tags: cloudflare, cache, purge, cdn, pantheon
 Requires at least: 6.0
@@ -12,7 +12,7 @@ Purge Cloudflare (and Pantheon) caches when content changes. Purge the whole zon
 
 == Description ==
 
-If Cloudflare caches your pages (Cache Rules, "Cache Everything", or a long edge TTL), editors expect their changes to appear right away. Cache Purge Control for Cloudflare purges Cloudflare whenever content changes, and it lets you decide how much to purge.
+If Cloudflare caches your pages (Cache Rules, "Cache Everything", or a long edge TTL), editors expect their changes to appear right away. This plugin purges Cloudflare (and the Pantheon Global CDN) whenever content changes, and it lets you decide how much to purge.
 
 = Two purge modes =
 
@@ -64,7 +64,7 @@ If the Pantheon Advanced Page Cache plugin is installed, this plugin calls its P
 == Installation ==
 
 1. Install and activate the plugin from **Plugins → Add New**, or upload the ZIP.
-2. Go to **Settings → Cloudflare Purge**.
+2. Go to **Settings → Purge Caches**.
 3. Follow the link to Cloudflare's "Create API token" page. The form is pre-filled with the Zone: Read and Cache Purge permissions; optionally limit it to your zone, then create the token.
 4. Paste the token, click **Verify token & load zones**, choose your zone and save.
 5. Review the **Purge Behavior** tab. The default purges everything on any content change.
@@ -134,4 +134,4 @@ Your API token (encrypted), the selected zone, the settings, a log of recent pur
 == Upgrade Notice ==
 
 = 2.0.0 =
-Replaces the 1.x MU plugin. Remove mu-clear-cloudflare-cache.php from mu-plugins, then connect to Cloudflare under Settings → Cloudflare Purge.
+Replaces the 1.x MU plugin. Remove mu-clear-cloudflare-cache.php from mu-plugins, then connect to Cloudflare under Settings → Purge Caches.

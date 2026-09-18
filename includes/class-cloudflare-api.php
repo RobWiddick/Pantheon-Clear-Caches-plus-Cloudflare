@@ -307,7 +307,7 @@ class Cloudflare_API {
 				'Content-Type'  => 'application/json',
 				'Accept'        => 'application/json',
 			),
-			'user-agent' => 'CachePurgeControlForCloudflare/' . CPCF_VERSION . ' (WordPress/' . get_bloginfo( 'version' ) . '; ' . home_url( '/' ) . ')',
+			'user-agent' => 'PurgePantheonCloudflareCaches/' . CPCF_VERSION . ' (WordPress/' . get_bloginfo( 'version' ) . '; ' . home_url( '/' ) . ')',
 		);
 
 		if ( null !== $body ) {
