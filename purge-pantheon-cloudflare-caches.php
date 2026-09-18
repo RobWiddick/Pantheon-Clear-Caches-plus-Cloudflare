@@ -4,8 +4,8 @@
  * Plugin URI:        https://github.com/RobWiddick/purge-pantheon-cloudflare-caches
  * Description:       Purges your Cloudflare zone cache (and Pantheon edge cache) when content changes. Purge everything, or only the URLs an edit actually affects.
  * Version:           2.0.0
- * Requires at least: 6.0
- * Requires PHP:      7.4
+ * Requires at least: 6.7
+ * Requires PHP:      8.1
  * Author:            36creative
  * Author URI:        https://36.agency
  * License:           GPLv2 or later
